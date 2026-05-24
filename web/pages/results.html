@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>实验结果 | VFMReg Project</title>
+<link rel="stylesheet" href="../css/academic.css">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+.chart-box {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    margin: 24px 0;
+}
+.chart-title {
+    font-family: var(--font-serif);
+    color: var(--primary);
+    font-size: 1.05em;
+    font-weight: 600;
+    margin-bottom: 14px;
+    text-align: center;
+}
+.chart-canvas-wrap { position: relative; height: 360px; }
+.chart-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 20px;
+}
+.kpi-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    background: var(--primary-pale);
+    padding: 14px 20px;
+    border-radius: var(--radius);
+    margin: 16px 0;
+    border-left: 4px solid var(--primary);
+}
+.kpi-line .label { color: var(--text-mid); font-size: 0.9em; }
+.kpi-line .value { font-family: var(--font-mono); color: var(--primary); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-inner">
+        <div class="nav-brand"><span class="icon">◈</span>VFMReg Project</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="datasets.html">数据集</a></li>
+            <li><a href="results.html" class="active">实验结果</a></li>
+            <li><a href="demo.html">在线演示</a></li>
+            <li><a href="../index.html#bibtex">引用</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-inner">
+        <div class="venue">Experimental Results · 完整实验结果</div>
+        <h1>实验结果与<span class="accent">分析</span></h1>
+        <p class="subtitle">第 3 章分割 · 第 4 章 NeRF · 第 5 章 VFMReg</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- 章节切换 -->
+    <section class="section">
+        <h2><span class="num">★</span>章节导航</h2>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event, 'tab-summary')">系统总览</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-ch3')">第3章 分割</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-ch4')">第4章 NeRF</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-ch5')">第5章 VFMReg</button>
+        </div>
+
+        <!-- ========== 总览 ========== -->
+        <div class="tab-content active" id="tab-summary">
+            <h3>系统级性能 (真实测试集)</h3>
+            <div class="kpi-line">
+                <span class="label">输入</span><span class="value">4× RGB (224×224)</span>
+                <span class="label">输出</span><span class="value">SE(3) 6DoF</span>
+                <span class="label">主干</span><span class="value">DINOv3 ViT-L/14 (冻结)</span>
+                <span class="label">可训练参数</span><span class="value">~10M</span>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card"><div class="metric-value">0.7°</div><div class="metric-label">旋转误差</div></div>
+                <div class="metric-card"><div class="metric-value">0.6mm</div><div class="metric-label">平移误差</div></div>
+                <div class="metric-card"><div class="metric-value">15ms</div><div class="metric-label">推理延迟</div></div>
+                <div class="metric-card"><div class="metric-value">95%</div><div class="metric-label">成功率</div></div>
+                <div class="metric-card"><div class="metric-value">20.5ms</div><div class="metric-label">端到端 (含分割)</div></div>
+            </div>
+
+            <div class="chart-grid-2">
+                <div class="chart-box">
+                    <div class="chart-title">VFMReg vs Baseline 综合对比 (真实数据)</div>
+                    <div class="chart-canvas-wrap"><canvas id="chart-overview"></canvas></div>
+                </div>
+                <div class="chart-box">
+                    <div class="chart-title">推理速度对比</div>
+                    <div class="chart-canvas-wrap"><canvas id="chart-speed"></canvas></div>
+                </div>
+            </div>
+
+            <h3>vs ICP 提升幅度</h3>
+            <table class="academic-table">
+                <thead><tr><th>指标</th><th>ICP</th><th>VFMReg (本文)</th><th>相对提升</th></tr></thead>
+                <tbody>
+                    <tr><td>旋转误差</td><td class="num">2.3°</td><td class="num best">0.7°</td><td><strong style="color:var(--success);">+70%</strong></td></tr>
+                    <tr><td>平移误差</td><td class="num">2.1mm</td><td class="num best">0.6mm</td><td><strong style="color:var(--success);">+71%</strong></td></tr>
+                    <tr><td>推理速度</td><td class="num">500ms</td><td class="num best">15ms</td><td><strong style="color:var(--success);">33×</strong></td></tr>
+                    <tr><td>成功率</td><td class="num">78%</td><td class="num best">95%</td><td><strong style="color:var(--success);">+17pp</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ========== 第3章 ========== -->
+        <div class="tab-content" id="tab-ch3">
+            <h3>3.1 头部分割 - 多场景性能对比</h3>
+            <table class="academic-table">
+                <caption>Table 3.1 YOLOv8n-seg vs Qwen2.5-VL_LoRA 在不同场景下的 mIoU 对比</caption>
+                <thead>
+                    <tr><th>方法</th><th>标准</th><th>逆光</th><th>低光</th><th>遮挡</th><th>挑战平均</th><th>推理 (ms)</th><th>参数</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight">
+                        <td>YOLOv8n-seg (本文)</td>
+                        <td class="num best">95.2</td>
+                        <td class="num">91.5</td>
+                        <td class="num">90.8</td>
+                        <td class="num">88.5</td>
+                        <td class="num">90.3</td>
+                        <td class="num best">8.0</td>
+                        <td class="num best">3.4M</td>
+                    </tr>
+                    <tr>
+                        <td>Qwen2.5-VL + LoRA</td>
+                        <td class="num">94.6</td>
+                        <td class="num best">93.8</td>
+                        <td class="num best">93.2</td>
+                        <td class="num best">93.1</td>
+                        <td class="num best">93.4</td>
+                        <td class="num">150.0</td>
+                        <td class="num">7.8B</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="color: var(--text-mid); font-size: 0.92em;">
+                ✦ <strong>结论</strong>: YOLOv8n-seg 在标准场景达到最优精度，
+                Qwen2.5-VL 在挑战场景具有更好鲁棒性但延迟高 19×。
+                综合考虑端侧部署需求，本文采用 YOLOv8n-seg。
+            </p>
+
+            <h3>3.2 消融实验</h3>
+            <div class="chart-box">
+                <div class="chart-title">YOLOv8n-seg 各组件消融贡献</div>
+                <div class="chart-canvas-wrap"><canvas id="chart-ch3-ablation"></canvas></div>
+            </div>
+
+            <h3>3.3 跨受试者鲁棒性</h3>
+            <div class="chart-box">
+                <div class="chart-title">5 受试者 / 4 场景下 mIoU 分布 (50 测试样本)</div>
+                <div class="chart-canvas-wrap"><canvas id="chart-ch3-scatter"></canvas></div>
+            </div>
+        </div>
+
+        <!-- ========== 第4章 ========== -->
+        <div class="tab-content" id="tab-ch4">
+            <h3>4.1 NeRF 配准方法对比</h3>
+            <table class="academic-table">
+                <caption>Table 4.1 NeRF 配准 vs 传统配准方法 (50 测试用例, 初始偏移 5-30°/5-30mm)</caption>
+                <thead>
+                    <tr><th>方法</th><th>旋转 (°)</th><th>平移 (mm)</th><th>成功率</th><th>耗时 (ms)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>ICP</td><td class="num">2.3 ± 1.8</td><td class="num">2.1 ± 1.5</td><td class="num">78%</td><td class="num">500</td></tr>
+                    <tr><td>Feature + RANSAC</td><td class="num">3.5 ± 2.5</td><td class="num">3.2 ± 2.1</td><td class="num">64%</td><td class="num">50</td></tr>
+                    <tr><td>NDT</td><td class="num">2.5 ± 2.0</td><td class="num">2.8 ± 1.8</td><td class="num">70%</td><td class="num">800</td></tr>
+                    <tr><td>ResNet50 Regression</td><td class="num">1.5 ± 1.0</td><td class="num">1.8 ± 1.2</td><td class="num">85%</td><td class="num">20</td></tr>
+                    <tr class="highlight">
+                        <td>NeRF (本文 Ch.4)</td>
+                        <td class="num best">0.9 ± 0.6</td>
+                        <td class="num best">1.2 ± 0.8</td>
+                        <td class="num best">92%</td>
+                        <td class="num">200</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>4.2 NeRF 训练曲线</h3>
+            <div class="chart-grid-2">
+                <div class="chart-box">
+                    <div class="chart-title">PSNR / Loss 收敛曲线 (200K iters)</div>
+                    <div class="chart-canvas-wrap"><canvas id="chart-ch4-train"></canvas></div>
+                </div>
+                <div class="chart-box">
+                    <div class="chart-title">旋转参数化对比</div>
+                    <div class="chart-canvas-wrap"><canvas id="chart-ch4-rot"></canvas></div>
+                </div>
+            </div>
+
+            <div class="kpi-line">
+                <span class="label">最终 PSNR</span><span class="value">29.2 dB</span>
+                <span class="label">SSIM</span><span class="value">0.935</span>
+                <span class="label">训练时间</span><span class="value">4.0 h (A100)</span>
+                <span class="label">参数量</span><span class="value">1.19 M</span>
+            </div>
+        </div>
+
+        <!-- ========== 第5章 ========== -->
+        <div class="tab-content" id="tab-ch5">
+            <h3>5.1 真实数据集端到端对比</h3>
+            <table class="academic-table">
+                <caption>Table 5.4 真实数据集 (500 样本 / 10 受试者) 上的性能对比</caption>
+                <thead>
+                    <tr><th>方法</th><th>旋转 (°)</th><th>平移 (mm)</th><th>耗时 (ms)</th><th>成功率</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>ICP</td><td class="num">2.8 ± 2.0</td><td class="num">2.5 ± 1.8</td><td class="num">500</td><td class="num">72%</td></tr>
+                    <tr><td>Feature + RANSAC</td><td class="num">4.0 ± 3.0</td><td class="num">3.8 ± 2.5</td><td class="num">50</td><td class="num">45%</td></tr>
+                    <tr><td>ResNet50 Reg.</td><td class="num">1.8 ± 1.2</td><td class="num">1.5 ± 1.0</td><td class="num">20</td><td class="num">82%</td></tr>
+                    <tr><td>Differentiable Rendering</td><td class="num">1.0 ± 0.6</td><td class="num">0.8 ± 0.5</td><td class="num">200</td><td class="num">92%</td></tr>
+                    <tr class="highlight">
+                        <td>VFMReg (本文)</td>
+                        <td class="num best">0.7 ± 0.3</td>
+                        <td class="num best">0.6 ± 0.3</td>
+                        <td class="num best">15</td>
+                        <td class="num best">95%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>5.2 消融实验（多维度）</h3>
+            <div class="chart-box">
+                <div class="chart-title">VFMReg 关键组件消融 (合成测试集)</div>
+                <div class="chart-canvas-wrap"><canvas id="chart-ch5-ablation"></canvas></div>
+            </div>
+
+            <h3>5.3 推理延迟分解</h3>
+            <div class="chart-grid-2">
+                <div class="chart-box">
+                    <div class="chart-title">A100 GPU 单帧延迟分解 (ms)</div>
+                    <div class="chart-canvas-wrap"><canvas id="chart-ch5-latency"></canvas></div>
+                </div>
+                <div class="chart-box">
+                    <div class="chart-title">不同硬件平台 (端到端)</div>
+                    <div class="chart-canvas-wrap"><canvas id="chart-ch5-hw"></canvas></div>
+                </div>
+            </div>
+
+            <h3>5.4 鲁棒性测试</h3>
+            <table class="academic-table">
+                <caption>极端场景下的精度退化（Δ 表示相对标准场景增量）</caption>
+                <thead>
+                    <tr><th>测试场景</th><th>旋转误差 (°)</th><th>Δ vs 标准</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>标准场景</td><td class="num">0.60</td><td>—</td></tr>
+                    <tr><td>极端逆光</td><td class="num">0.65</td><td style="color:var(--warning);">+0.05°</td></tr>
+                    <tr><td>低光 (20%)</td><td class="num">0.70</td><td style="color:var(--warning);">+0.10°</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-links">
+            <a href="../index.html">首页</a>
+            <a href="datasets.html">数据集</a>
+            <a href="results.html">实验结果</a>
+            <a href="demo.html">在线演示</a>
+        </div>
+        <p>© 2026 郭宣伯 · 北京航空航天大学</p>
+    </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/charts.js"></script>
+</body>
+</html>

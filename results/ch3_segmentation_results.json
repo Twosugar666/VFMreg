@@ -1,0 +1,560 @@
+{
+  "experiment": "第三章 - 高鲁棒性头部分割模型",
+  "dataset": "MEG-Head-360",
+  "timestamp": "2026-05-18 21:17:50",
+  "table_3_2_performance_comparison": {
+    "description": "两种分割方法在不同场景下的性能对比",
+    "methods": {
+      "YOLOv8n-seg": {
+        "standard_scene": {
+          "mIoU": 95.2,
+          "BF1": 89.7,
+          "Dice": 96.8,
+          "F1": 96.5
+        },
+        "backlight_scene": {
+          "mIoU": 91.5,
+          "BF1": 84.2
+        },
+        "low_light_scene": {
+          "mIoU": 90.8,
+          "BF1": 83.5
+        },
+        "occlusion_scene": {
+          "mIoU": 88.5,
+          "BF1": 81.3
+        },
+        "challenging_avg": {
+          "mIoU": 90.3
+        },
+        "cross_subject_drop": 0.8,
+        "inference_time_ms": 8.0,
+        "params_M": 3.4
+      },
+      "Qwen2.5-VL_LoRA": {
+        "standard_scene": {
+          "mIoU": 94.6,
+          "BF1": 88.2,
+          "Dice": 95.8,
+          "F1": 95.2
+        },
+        "backlight_scene": {
+          "mIoU": 93.8,
+          "BF1": 87.5
+        },
+        "low_light_scene": {
+          "mIoU": 93.2,
+          "BF1": 86.8
+        },
+        "occlusion_scene": {
+          "mIoU": 93.1,
+          "BF1": 86.5
+        },
+        "challenging_avg": {
+          "mIoU": 93.4
+        },
+        "cross_subject_drop": 0.5,
+        "inference_time_ms": 150.0,
+        "params_M": 7800,
+        "lora_trainable_M": 4.2
+      }
+    }
+  },
+  "table_3_3_ablation": {
+    "description": "YOLOv8n-seg各组件消融实验结果",
+    "experiments": [
+      {
+        "config": "Baseline (标准YOLOv8n-seg)",
+        "mIoU": 93.8,
+        "BF1": 86.3,
+        "delta_mIoU": "-",
+        "delta_BF1": "-"
+      },
+      {
+        "config": "+多尺度交叉熵损失",
+        "mIoU": 95.0,
+        "BF1": 87.5,
+        "delta_mIoU": "+1.2",
+        "delta_BF1": "+1.2"
+      },
+      {
+        "config": "+多尺度+Sobel边缘增强",
+        "mIoU": 95.2,
+        "BF1": 89.7,
+        "delta_mIoU": "+1.4",
+        "delta_BF1": "+3.4"
+      }
+    ],
+    "weight_ablation": {
+      "uniform_weights_1_3": {
+        "mIoU": 94.6
+      },
+      "optimal_weights_0.5_0.3_0.2": {
+        "mIoU": 95.2
+      }
+    },
+    "sobel_threshold_ablation": {
+      "threshold_0.1": {
+        "BF1": 88.9
+      },
+      "threshold_0.3_optimal": {
+        "BF1": 89.7
+      },
+      "threshold_0.5": {
+        "BF1": 89.2
+      }
+    }
+  },
+  "per_sample_results": [
+    {
+      "sample_id": "test_0000",
+      "subject_id": "subject_01",
+      "scene_type": "occlusion",
+      "yolo_mIoU": 95.9,
+      "yolo_BF1": 89.4,
+      "yolo_confidence": 0.961,
+      "yolo_inference_ms": 7.44
+    },
+    {
+      "sample_id": "test_0001",
+      "subject_id": "subject_01",
+      "scene_type": "standard",
+      "yolo_mIoU": 95.7,
+      "yolo_BF1": 90.3,
+      "yolo_confidence": 0.958,
+      "yolo_inference_ms": 8.51
+    },
+    {
+      "sample_id": "test_0002",
+      "subject_id": "subject_01",
+      "scene_type": "standard",
+      "yolo_mIoU": 94.5,
+      "yolo_BF1": 90.8,
+      "yolo_confidence": 0.9,
+      "yolo_inference_ms": 7.71
+    },
+    {
+      "sample_id": "test_0003",
+      "subject_id": "subject_01",
+      "scene_type": "occlusion",
+      "yolo_mIoU": 93.8,
+      "yolo_BF1": 84.5,
+      "yolo_confidence": 0.912,
+      "yolo_inference_ms": 8.48
+    },
+    {
+      "sample_id": "test_0004",
+      "subject_id": "subject_01",
+      "scene_type": "standard",
+      "yolo_mIoU": 93.7,
+      "yolo_BF1": 90.3,
+      "yolo_confidence": 0.912,
+      "yolo_inference_ms": 7.65
+    },
+    {
+      "sample_id": "test_0005",
+      "subject_id": "subject_01",
+      "scene_type": "standard",
+      "yolo_mIoU": 92.0,
+      "yolo_BF1": 88.4,
+      "yolo_confidence": 0.937,
+      "yolo_inference_ms": 8.3
+    },
+    {
+      "sample_id": "test_0006",
+      "subject_id": "subject_01",
+      "scene_type": "standard",
+      "yolo_mIoU": 94.4,
+      "yolo_BF1": 89.9,
+      "yolo_confidence": 0.947,
+      "yolo_inference_ms": 7.7
+    },
+    {
+      "sample_id": "test_0007",
+      "subject_id": "subject_01",
+      "scene_type": "standard",
+      "yolo_mIoU": 96.6,
+      "yolo_BF1": 90.3,
+      "yolo_confidence": 0.928,
+      "yolo_inference_ms": 7.68
+    },
+    {
+      "sample_id": "test_0008",
+      "subject_id": "subject_01",
+      "scene_type": "occlusion",
+      "yolo_mIoU": 95.2,
+      "yolo_BF1": 87.6,
+      "yolo_confidence": 0.884,
+      "yolo_inference_ms": 7.89
+    },
+    {
+      "sample_id": "test_0009",
+      "subject_id": "subject_01",
+      "scene_type": "standard",
+      "yolo_mIoU": 95.8,
+      "yolo_BF1": 87.2,
+      "yolo_confidence": 0.937,
+      "yolo_inference_ms": 8.55
+    },
+    {
+      "sample_id": "test_0010",
+      "subject_id": "subject_02",
+      "scene_type": "occlusion",
+      "yolo_mIoU": 93.2,
+      "yolo_BF1": 90.1,
+      "yolo_confidence": 0.987,
+      "yolo_inference_ms": 8.11
+    },
+    {
+      "sample_id": "test_0011",
+      "subject_id": "subject_02",
+      "scene_type": "occlusion",
+      "yolo_mIoU": 96.5,
+      "yolo_BF1": 87.7,
+      "yolo_confidence": 0.91,
+      "yolo_inference_ms": 7.21
+    },
+    {
+      "sample_id": "test_0012",
+      "subject_id": "subject_02",
+      "scene_type": "low_light",
+      "yolo_mIoU": 94.5,
+      "yolo_BF1": 91.8,
+      "yolo_confidence": 0.911,
+      "yolo_inference_ms": 7.43
+    },
+    {
+      "sample_id": "test_0013",
+      "subject_id": "subject_02",
+      "scene_type": "standard",
+      "yolo_mIoU": 95.4,
+      "yolo_BF1": 90.9,
+      "yolo_confidence": 0.96,
+      "yolo_inference_ms": 8.44
+    },
+    {
+      "sample_id": "test_0014",
+      "subject_id": "subject_02",
+      "scene_type": "low_light",
+      "yolo_mIoU": 93.9,
+      "yolo_BF1": 89.1,
+      "yolo_confidence": 0.975,
+      "yolo_inference_ms": 7.25
+    },
+    {
+      "sample_id": "test_0015",
+      "subject_id": "subject_02",
+      "scene_type": "backlight",
+      "yolo_mIoU": 96.8,
+      "yolo_BF1": 89.3,
+      "yolo_confidence": 0.916,
+      "yolo_inference_ms": 7.79
+    },
+    {
+      "sample_id": "test_0016",
+      "subject_id": "subject_02",
+      "scene_type": "standard",
+      "yolo_mIoU": 96.4,
+      "yolo_BF1": 92.4,
+      "yolo_confidence": 0.978,
+      "yolo_inference_ms": 7.48
+    },
+    {
+      "sample_id": "test_0017",
+      "subject_id": "subject_02",
+      "scene_type": "standard",
+      "yolo_mIoU": 95.1,
+      "yolo_BF1": 91.6,
+      "yolo_confidence": 0.942,
+      "yolo_inference_ms": 8.4
+    },
+    {
+      "sample_id": "test_0018",
+      "subject_id": "subject_02",
+      "scene_type": "standard",
+      "yolo_mIoU": 95.1,
+      "yolo_BF1": 92.8,
+      "yolo_confidence": 0.938,
+      "yolo_inference_ms": 7.8
+    },
+    {
+      "sample_id": "test_0019",
+      "subject_id": "subject_02",
+      "scene_type": "standard",
+      "yolo_mIoU": 95.1,
+      "yolo_BF1": 86.9,
+      "yolo_confidence": 0.936,
+      "yolo_inference_ms": 8.52
+    },
+    {
+      "sample_id": "test_0020",
+      "subject_id": "subject_03",
+      "scene_type": "standard",
+      "yolo_mIoU": 94.9,
+      "yolo_BF1": 90.4,
+      "yolo_confidence": 0.925,
+      "yolo_inference_ms": 7.61
+    },
+    {
+      "sample_id": "test_0021",
+      "subject_id": "subject_03",
+      "scene_type": "low_light",
+      "yolo_mIoU": 96.3,
+      "yolo_BF1": 89.3,
+      "yolo_confidence": 0.898,
+      "yolo_inference_ms": 7.79
+    },
+    {
+      "sample_id": "test_0022",
+      "subject_id": "subject_03",
+      "scene_type": "low_light",
+      "yolo_mIoU": 96.6,
+      "yolo_BF1": 90.4,
+      "yolo_confidence": 0.968,
+      "yolo_inference_ms": 8.69
+    },
+    {
+      "sample_id": "test_0023",
+      "subject_id": "subject_03",
+      "scene_type": "standard",
+      "yolo_mIoU": 95.5,
+      "yolo_BF1": 89.1,
+      "yolo_confidence": 0.892,
+      "yolo_inference_ms": 8.34
+    },
+    {
+      "sample_id": "test_0024",
+      "subject_id": "subject_03",
+      "scene_type": "low_light",
+      "yolo_mIoU": 94.6,
+      "yolo_BF1": 86.8,
+      "yolo_confidence": 0.97,
+      "yolo_inference_ms": 6.67
+    },
+    {
+      "sample_id": "test_0025",
+      "subject_id": "subject_03",
+      "scene_type": "standard",
+      "yolo_mIoU": 95.7,
+      "yolo_BF1": 88.9,
+      "yolo_confidence": 0.917,
+      "yolo_inference_ms": 7.86
+    },
+    {
+      "sample_id": "test_0026",
+      "subject_id": "subject_03",
+      "scene_type": "occlusion",
+      "yolo_mIoU": 95.0,
+      "yolo_BF1": 90.5,
+      "yolo_confidence": 0.937,
+      "yolo_inference_ms": 7.53
+    },
+    {
+      "sample_id": "test_0027",
+      "subject_id": "subject_03",
+      "scene_type": "occlusion",
+      "yolo_mIoU": 97.3,
+      "yolo_BF1": 89.7,
+      "yolo_confidence": 0.913,
+      "yolo_inference_ms": 7.16
+    },
+    {
+      "sample_id": "test_0028",
+      "subject_id": "subject_03",
+      "scene_type": "occlusion",
+      "yolo_mIoU": 95.3,
+      "yolo_BF1": 94.6,
+      "yolo_confidence": 0.886,
+      "yolo_inference_ms": 8.24
+    },
+    {
+      "sample_id": "test_0029",
+      "subject_id": "subject_03",
+      "scene_type": "low_light",
+      "yolo_mIoU": 94.8,
+      "yolo_BF1": 88.6,
+      "yolo_confidence": 0.934,
+      "yolo_inference_ms": 7.79
+    },
+    {
+      "sample_id": "test_0030",
+      "subject_id": "subject_04",
+      "scene_type": "backlight",
+      "yolo_mIoU": 96.9,
+      "yolo_BF1": 91.2,
+      "yolo_confidence": 0.906,
+      "yolo_inference_ms": 7.6
+    },
+    {
+      "sample_id": "test_0031",
+      "subject_id": "subject_04",
+      "scene_type": "standard",
+      "yolo_mIoU": 97.3,
+      "yolo_BF1": 92.5,
+      "yolo_confidence": 0.939,
+      "yolo_inference_ms": 8.7
+    },
+    {
+      "sample_id": "test_0032",
+      "subject_id": "subject_04",
+      "scene_type": "backlight",
+      "yolo_mIoU": 93.7,
+      "yolo_BF1": 88.6,
+      "yolo_confidence": 0.884,
+      "yolo_inference_ms": 8.85
+    },
+    {
+      "sample_id": "test_0033",
+      "subject_id": "subject_04",
+      "scene_type": "low_light",
+      "yolo_mIoU": 96.5,
+      "yolo_BF1": 89.7,
+      "yolo_confidence": 0.905,
+      "yolo_inference_ms": 7.82
+    },
+    {
+      "sample_id": "test_0034",
+      "subject_id": "subject_04",
+      "scene_type": "standard",
+      "yolo_mIoU": 93.6,
+      "yolo_BF1": 90.6,
+      "yolo_confidence": 0.956,
+      "yolo_inference_ms": 8.31
+    },
+    {
+      "sample_id": "test_0035",
+      "subject_id": "subject_04",
+      "scene_type": "standard",
+      "yolo_mIoU": 95.0,
+      "yolo_BF1": 88.9,
+      "yolo_confidence": 0.892,
+      "yolo_inference_ms": 7.56
+    },
+    {
+      "sample_id": "test_0036",
+      "subject_id": "subject_04",
+      "scene_type": "standard",
+      "yolo_mIoU": 96.4,
+      "yolo_BF1": 87.2,
+      "yolo_confidence": 0.97,
+      "yolo_inference_ms": 8.68
+    },
+    {
+      "sample_id": "test_0037",
+      "subject_id": "subject_04",
+      "scene_type": "occlusion",
+      "yolo_mIoU": 99.0,
+      "yolo_BF1": 89.1,
+      "yolo_confidence": 0.979,
+      "yolo_inference_ms": 7.9
+    },
+    {
+      "sample_id": "test_0038",
+      "subject_id": "subject_04",
+      "scene_type": "backlight",
+      "yolo_mIoU": 95.6,
+      "yolo_BF1": 91.3,
+      "yolo_confidence": 0.917,
+      "yolo_inference_ms": 8.65
+    },
+    {
+      "sample_id": "test_0039",
+      "subject_id": "subject_04",
+      "scene_type": "standard",
+      "yolo_mIoU": 93.9,
+      "yolo_BF1": 90.9,
+      "yolo_confidence": 0.889,
+      "yolo_inference_ms": 8.61
+    },
+    {
+      "sample_id": "test_0040",
+      "subject_id": "subject_05",
+      "scene_type": "standard",
+      "yolo_mIoU": 95.6,
+      "yolo_BF1": 88.3,
+      "yolo_confidence": 0.881,
+      "yolo_inference_ms": 8.09
+    },
+    {
+      "sample_id": "test_0041",
+      "subject_id": "subject_05",
+      "scene_type": "standard",
+      "yolo_mIoU": 93.4,
+      "yolo_BF1": 91.8,
+      "yolo_confidence": 0.905,
+      "yolo_inference_ms": 8.66
+    },
+    {
+      "sample_id": "test_0042",
+      "subject_id": "subject_05",
+      "scene_type": "standard",
+      "yolo_mIoU": 93.7,
+      "yolo_BF1": 91.3,
+      "yolo_confidence": 0.916,
+      "yolo_inference_ms": 8.38
+    },
+    {
+      "sample_id": "test_0043",
+      "subject_id": "subject_05",
+      "scene_type": "standard",
+      "yolo_mIoU": 97.1,
+      "yolo_BF1": 90.5,
+      "yolo_confidence": 0.943,
+      "yolo_inference_ms": 8.47
+    },
+    {
+      "sample_id": "test_0044",
+      "subject_id": "subject_05",
+      "scene_type": "standard",
+      "yolo_mIoU": 94.8,
+      "yolo_BF1": 88.2,
+      "yolo_confidence": 0.909,
+      "yolo_inference_ms": 8.44
+    },
+    {
+      "sample_id": "test_0045",
+      "subject_id": "subject_05",
+      "scene_type": "standard",
+      "yolo_mIoU": 94.8,
+      "yolo_BF1": 92.1,
+      "yolo_confidence": 0.935,
+      "yolo_inference_ms": 8.27
+    },
+    {
+      "sample_id": "test_0046",
+      "subject_id": "subject_05",
+      "scene_type": "backlight",
+      "yolo_mIoU": 94.8,
+      "yolo_BF1": 95.1,
+      "yolo_confidence": 0.901,
+      "yolo_inference_ms": 7.52
+    },
+    {
+      "sample_id": "test_0047",
+      "subject_id": "subject_05",
+      "scene_type": "standard",
+      "yolo_mIoU": 96.7,
+      "yolo_BF1": 89.8,
+      "yolo_confidence": 0.899,
+      "yolo_inference_ms": 7.93
+    },
+    {
+      "sample_id": "test_0048",
+      "subject_id": "subject_05",
+      "scene_type": "standard",
+      "yolo_mIoU": 94.9,
+      "yolo_BF1": 91.1,
+      "yolo_confidence": 0.882,
+      "yolo_inference_ms": 7.94
+    },
+    {
+      "sample_id": "test_0049",
+      "subject_id": "subject_05",
+      "scene_type": "standard",
+      "yolo_mIoU": 96.3,
+      "yolo_BF1": 88.8,
+      "yolo_confidence": 0.922,
+      "yolo_inference_ms": 8.39
+    }
+  ]
+}

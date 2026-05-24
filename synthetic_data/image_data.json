@@ -1,0 +1,1602 @@
+[
+  {
+    "image_id": 1,
+    "dimensions": "28x28",
+    "mean_intensity": 128.26530612244898,
+    "std_intensity": 73.06459275669856,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 2,
+    "dimensions": "28x28",
+    "mean_intensity": 127.40561224489795,
+    "std_intensity": 73.444125431102,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 3,
+    "dimensions": "28x28",
+    "mean_intensity": 124.76785714285714,
+    "std_intensity": 71.40047438460712,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 4,
+    "dimensions": "28x28",
+    "mean_intensity": 125.83163265306122,
+    "std_intensity": 74.03801229558626,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 5,
+    "dimensions": "28x28",
+    "mean_intensity": 125.82142857142857,
+    "std_intensity": 74.48523172346287,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 6,
+    "dimensions": "28x28",
+    "mean_intensity": 128.80229591836735,
+    "std_intensity": 75.01398131473854,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 7,
+    "dimensions": "28x28",
+    "mean_intensity": 129.7627551020408,
+    "std_intensity": 72.4831601875688,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 8,
+    "dimensions": "28x28",
+    "mean_intensity": 124.12372448979592,
+    "std_intensity": 70.74617786175125,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 9,
+    "dimensions": "28x28",
+    "mean_intensity": 121.38520408163265,
+    "std_intensity": 73.79798394361478,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 10,
+    "dimensions": "28x28",
+    "mean_intensity": 127.89030612244898,
+    "std_intensity": 74.55641411455204,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 11,
+    "dimensions": "28x28",
+    "mean_intensity": 129.32780612244898,
+    "std_intensity": 74.56926270994818,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 12,
+    "dimensions": "28x28",
+    "mean_intensity": 129.05994897959184,
+    "std_intensity": 73.94841160964333,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 13,
+    "dimensions": "28x28",
+    "mean_intensity": 123.58545918367346,
+    "std_intensity": 75.13274200518521,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 14,
+    "dimensions": "28x28",
+    "mean_intensity": 126.18622448979592,
+    "std_intensity": 72.03250764185636,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 15,
+    "dimensions": "28x28",
+    "mean_intensity": 121.9375,
+    "std_intensity": 74.17087567119343,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 16,
+    "dimensions": "28x28",
+    "mean_intensity": 127.12882653061224,
+    "std_intensity": 73.81699645033994,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 17,
+    "dimensions": "28x28",
+    "mean_intensity": 124.03316326530613,
+    "std_intensity": 75.20778307390606,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 18,
+    "dimensions": "28x28",
+    "mean_intensity": 125.55357142857143,
+    "std_intensity": 75.12869697854394,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 19,
+    "dimensions": "28x28",
+    "mean_intensity": 127.89923469387755,
+    "std_intensity": 75.21622775559575,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 20,
+    "dimensions": "28x28",
+    "mean_intensity": 125.61734693877551,
+    "std_intensity": 74.62047856676273,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 21,
+    "dimensions": "28x28",
+    "mean_intensity": 127.37882653061224,
+    "std_intensity": 73.55846356394535,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 22,
+    "dimensions": "28x28",
+    "mean_intensity": 124.15943877551021,
+    "std_intensity": 74.13529646071215,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 23,
+    "dimensions": "28x28",
+    "mean_intensity": 130.66071428571428,
+    "std_intensity": 74.75140560756114,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 24,
+    "dimensions": "28x28",
+    "mean_intensity": 125.8329081632653,
+    "std_intensity": 72.42368530089445,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 25,
+    "dimensions": "28x28",
+    "mean_intensity": 125.33673469387755,
+    "std_intensity": 73.88524525836533,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 26,
+    "dimensions": "28x28",
+    "mean_intensity": 128.7002551020408,
+    "std_intensity": 73.96755838752874,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 27,
+    "dimensions": "28x28",
+    "mean_intensity": 131.3609693877551,
+    "std_intensity": 72.25028110304105,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 28,
+    "dimensions": "28x28",
+    "mean_intensity": 131.21173469387756,
+    "std_intensity": 74.22334995554627,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 29,
+    "dimensions": "28x28",
+    "mean_intensity": 127.15178571428571,
+    "std_intensity": 74.08125139355919,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 30,
+    "dimensions": "28x28",
+    "mean_intensity": 127.50127551020408,
+    "std_intensity": 72.71482948439404,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 31,
+    "dimensions": "28x28",
+    "mean_intensity": 123.13647959183673,
+    "std_intensity": 73.4853205933591,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 32,
+    "dimensions": "28x28",
+    "mean_intensity": 126.25892857142857,
+    "std_intensity": 74.35937657462122,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 33,
+    "dimensions": "28x28",
+    "mean_intensity": 127.33928571428571,
+    "std_intensity": 73.12412349029894,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 34,
+    "dimensions": "28x28",
+    "mean_intensity": 130.16326530612244,
+    "std_intensity": 72.98463199677808,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 35,
+    "dimensions": "28x28",
+    "mean_intensity": 123.8188775510204,
+    "std_intensity": 74.32899049032979,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 36,
+    "dimensions": "28x28",
+    "mean_intensity": 129.75510204081633,
+    "std_intensity": 74.8253321483576,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 37,
+    "dimensions": "28x28",
+    "mean_intensity": 129.85969387755102,
+    "std_intensity": 73.64097411967093,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 38,
+    "dimensions": "28x28",
+    "mean_intensity": 125.28826530612245,
+    "std_intensity": 73.54795787236324,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 39,
+    "dimensions": "28x28",
+    "mean_intensity": 131.625,
+    "std_intensity": 74.37331502121509,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 40,
+    "dimensions": "28x28",
+    "mean_intensity": 124.80994897959184,
+    "std_intensity": 72.86157796723145,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 41,
+    "dimensions": "28x28",
+    "mean_intensity": 122.51020408163265,
+    "std_intensity": 73.54651032911761,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 42,
+    "dimensions": "28x28",
+    "mean_intensity": 128.31760204081633,
+    "std_intensity": 74.09604836997524,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 43,
+    "dimensions": "28x28",
+    "mean_intensity": 123.04464285714286,
+    "std_intensity": 77.07595840570627,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 44,
+    "dimensions": "28x28",
+    "mean_intensity": 125.00127551020408,
+    "std_intensity": 73.00257717288669,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 45,
+    "dimensions": "28x28",
+    "mean_intensity": 129.74107142857142,
+    "std_intensity": 73.7566880182636,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 46,
+    "dimensions": "28x28",
+    "mean_intensity": 127.24872448979592,
+    "std_intensity": 73.97893814586284,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 47,
+    "dimensions": "28x28",
+    "mean_intensity": 132.51785714285714,
+    "std_intensity": 73.53051697098564,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 48,
+    "dimensions": "28x28",
+    "mean_intensity": 125.41581632653062,
+    "std_intensity": 71.67027359506,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 49,
+    "dimensions": "28x28",
+    "mean_intensity": 127.9234693877551,
+    "std_intensity": 73.08681767990444,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 50,
+    "dimensions": "28x28",
+    "mean_intensity": 128.14285714285714,
+    "std_intensity": 74.00441244428936,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 51,
+    "dimensions": "28x28",
+    "mean_intensity": 128.08673469387756,
+    "std_intensity": 74.40282751615693,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 52,
+    "dimensions": "28x28",
+    "mean_intensity": 126.80867346938776,
+    "std_intensity": 73.5274946927429,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 53,
+    "dimensions": "28x28",
+    "mean_intensity": 126.50765306122449,
+    "std_intensity": 74.33928317560849,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 54,
+    "dimensions": "28x28",
+    "mean_intensity": 127.20408163265306,
+    "std_intensity": 73.68073837734032,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 55,
+    "dimensions": "28x28",
+    "mean_intensity": 127.42219387755102,
+    "std_intensity": 73.62492207322832,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 56,
+    "dimensions": "28x28",
+    "mean_intensity": 126.87882653061224,
+    "std_intensity": 74.85591166279299,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 57,
+    "dimensions": "28x28",
+    "mean_intensity": 132.75255102040816,
+    "std_intensity": 73.46915563845135,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 58,
+    "dimensions": "28x28",
+    "mean_intensity": 129.88520408163265,
+    "std_intensity": 71.28268734955688,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 59,
+    "dimensions": "28x28",
+    "mean_intensity": 122.10586734693878,
+    "std_intensity": 75.27141546418802,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 60,
+    "dimensions": "28x28",
+    "mean_intensity": 125.14030612244898,
+    "std_intensity": 72.84956688838072,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 61,
+    "dimensions": "28x28",
+    "mean_intensity": 122.75127551020408,
+    "std_intensity": 73.90269128377749,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 62,
+    "dimensions": "28x28",
+    "mean_intensity": 126.02423469387755,
+    "std_intensity": 73.96362643305554,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 63,
+    "dimensions": "28x28",
+    "mean_intensity": 127.92857142857143,
+    "std_intensity": 74.6005177254016,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 64,
+    "dimensions": "28x28",
+    "mean_intensity": 129.31632653061226,
+    "std_intensity": 73.00275671881465,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 65,
+    "dimensions": "28x28",
+    "mean_intensity": 129.66836734693877,
+    "std_intensity": 75.1175250577642,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 66,
+    "dimensions": "28x28",
+    "mean_intensity": 126.44770408163265,
+    "std_intensity": 72.85666890486026,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 67,
+    "dimensions": "28x28",
+    "mean_intensity": 131.9170918367347,
+    "std_intensity": 73.06517578128961,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 68,
+    "dimensions": "28x28",
+    "mean_intensity": 129.75382653061226,
+    "std_intensity": 72.97832611328133,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 69,
+    "dimensions": "28x28",
+    "mean_intensity": 129.59566326530611,
+    "std_intensity": 75.10389763771522,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 70,
+    "dimensions": "28x28",
+    "mean_intensity": 124.91198979591837,
+    "std_intensity": 74.79460759728971,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 71,
+    "dimensions": "28x28",
+    "mean_intensity": 126.74234693877551,
+    "std_intensity": 73.8461752191126,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 72,
+    "dimensions": "28x28",
+    "mean_intensity": 128.8826530612245,
+    "std_intensity": 75.02570311336737,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 73,
+    "dimensions": "28x28",
+    "mean_intensity": 128.70535714285714,
+    "std_intensity": 74.98539770688826,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 74,
+    "dimensions": "28x28",
+    "mean_intensity": 129.4387755102041,
+    "std_intensity": 73.125251274856,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 75,
+    "dimensions": "28x28",
+    "mean_intensity": 124.88520408163265,
+    "std_intensity": 73.46668747695041,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 76,
+    "dimensions": "28x28",
+    "mean_intensity": 126.59693877551021,
+    "std_intensity": 75.92570409057339,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 77,
+    "dimensions": "28x28",
+    "mean_intensity": 127.70663265306122,
+    "std_intensity": 74.70182671924152,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 78,
+    "dimensions": "28x28",
+    "mean_intensity": 127.3125,
+    "std_intensity": 75.74191239155236,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 79,
+    "dimensions": "28x28",
+    "mean_intensity": 124.8188775510204,
+    "std_intensity": 73.03087026035638,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 80,
+    "dimensions": "28x28",
+    "mean_intensity": 133.34311224489795,
+    "std_intensity": 74.09063243625154,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 81,
+    "dimensions": "28x28",
+    "mean_intensity": 129.39158163265307,
+    "std_intensity": 74.92990588862386,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 82,
+    "dimensions": "28x28",
+    "mean_intensity": 124.53954081632654,
+    "std_intensity": 74.7289214550161,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 83,
+    "dimensions": "28x28",
+    "mean_intensity": 125.45535714285714,
+    "std_intensity": 74.87730131296978,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 84,
+    "dimensions": "28x28",
+    "mean_intensity": 130.96428571428572,
+    "std_intensity": 73.22850907137415,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 85,
+    "dimensions": "28x28",
+    "mean_intensity": 123.0484693877551,
+    "std_intensity": 72.95013461614974,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 86,
+    "dimensions": "28x28",
+    "mean_intensity": 127.41071428571429,
+    "std_intensity": 71.51954697486413,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 87,
+    "dimensions": "28x28",
+    "mean_intensity": 123.90051020408163,
+    "std_intensity": 75.805035235706,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 88,
+    "dimensions": "28x28",
+    "mean_intensity": 129.10841836734693,
+    "std_intensity": 75.34691691313431,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 89,
+    "dimensions": "28x28",
+    "mean_intensity": 129.19642857142858,
+    "std_intensity": 74.53955385757091,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 90,
+    "dimensions": "28x28",
+    "mean_intensity": 127.9375,
+    "std_intensity": 73.24650804433462,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 91,
+    "dimensions": "28x28",
+    "mean_intensity": 127.24489795918367,
+    "std_intensity": 73.5091881282558,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 92,
+    "dimensions": "28x28",
+    "mean_intensity": 124.83418367346938,
+    "std_intensity": 74.79293221306067,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 93,
+    "dimensions": "28x28",
+    "mean_intensity": 123.46556122448979,
+    "std_intensity": 73.9690975029391,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 94,
+    "dimensions": "28x28",
+    "mean_intensity": 132.71301020408163,
+    "std_intensity": 73.94668883674414,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 95,
+    "dimensions": "28x28",
+    "mean_intensity": 130.29591836734693,
+    "std_intensity": 74.00140776152313,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 96,
+    "dimensions": "28x28",
+    "mean_intensity": 127.65433673469387,
+    "std_intensity": 74.00388955972682,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 97,
+    "dimensions": "28x28",
+    "mean_intensity": 125.56377551020408,
+    "std_intensity": 73.38925791682499,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 98,
+    "dimensions": "28x28",
+    "mean_intensity": 121.89795918367346,
+    "std_intensity": 73.05698988697299,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 99,
+    "dimensions": "28x28",
+    "mean_intensity": 129.38137755102042,
+    "std_intensity": 72.09323760455231,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 100,
+    "dimensions": "28x28",
+    "mean_intensity": 127.34821428571429,
+    "std_intensity": 73.77010221970077,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 101,
+    "dimensions": "28x28",
+    "mean_intensity": 125.82525510204081,
+    "std_intensity": 73.19716751055041,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 102,
+    "dimensions": "28x28",
+    "mean_intensity": 129.48469387755102,
+    "std_intensity": 74.16731478251822,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 103,
+    "dimensions": "28x28",
+    "mean_intensity": 130.13392857142858,
+    "std_intensity": 73.69719605246117,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 104,
+    "dimensions": "28x28",
+    "mean_intensity": 126.47576530612245,
+    "std_intensity": 72.32834657865519,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 105,
+    "dimensions": "28x28",
+    "mean_intensity": 126.00127551020408,
+    "std_intensity": 72.79618422107428,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 106,
+    "dimensions": "28x28",
+    "mean_intensity": 130.5,
+    "std_intensity": 74.07437313337212,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 107,
+    "dimensions": "28x28",
+    "mean_intensity": 129.26020408163265,
+    "std_intensity": 73.23110362908551,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 108,
+    "dimensions": "28x28",
+    "mean_intensity": 124.78061224489795,
+    "std_intensity": 72.7914467925715,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 109,
+    "dimensions": "28x28",
+    "mean_intensity": 130.7704081632653,
+    "std_intensity": 73.48622557196005,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 110,
+    "dimensions": "28x28",
+    "mean_intensity": 127.6811224489796,
+    "std_intensity": 75.31840812724164,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 111,
+    "dimensions": "28x28",
+    "mean_intensity": 124.44515306122449,
+    "std_intensity": 73.46458644272805,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 112,
+    "dimensions": "28x28",
+    "mean_intensity": 126.63647959183673,
+    "std_intensity": 74.66468748340463,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 113,
+    "dimensions": "28x28",
+    "mean_intensity": 124.61479591836735,
+    "std_intensity": 76.11804128885758,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 114,
+    "dimensions": "28x28",
+    "mean_intensity": 133.79336734693877,
+    "std_intensity": 74.16733807843292,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 115,
+    "dimensions": "28x28",
+    "mean_intensity": 127.22066326530613,
+    "std_intensity": 75.17599100809961,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 116,
+    "dimensions": "28x28",
+    "mean_intensity": 124.69770408163265,
+    "std_intensity": 74.09559596674781,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 117,
+    "dimensions": "28x28",
+    "mean_intensity": 124.54336734693878,
+    "std_intensity": 75.07962206807827,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 118,
+    "dimensions": "28x28",
+    "mean_intensity": 126.59438775510205,
+    "std_intensity": 72.87780707747095,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 119,
+    "dimensions": "28x28",
+    "mean_intensity": 125.92091836734694,
+    "std_intensity": 74.0736421433501,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 120,
+    "dimensions": "28x28",
+    "mean_intensity": 130.6173469387755,
+    "std_intensity": 71.64685578573336,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 121,
+    "dimensions": "28x28",
+    "mean_intensity": 133.6734693877551,
+    "std_intensity": 72.22640501811577,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 122,
+    "dimensions": "28x28",
+    "mean_intensity": 126.38265306122449,
+    "std_intensity": 73.9558024734495,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 123,
+    "dimensions": "28x28",
+    "mean_intensity": 128.4591836734694,
+    "std_intensity": 74.67991812235859,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 124,
+    "dimensions": "28x28",
+    "mean_intensity": 132.35204081632654,
+    "std_intensity": 74.88486772507792,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 125,
+    "dimensions": "28x28",
+    "mean_intensity": 126.12372448979592,
+    "std_intensity": 75.31407874731488,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 126,
+    "dimensions": "28x28",
+    "mean_intensity": 125.70025510204081,
+    "std_intensity": 72.68416580740674,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 127,
+    "dimensions": "28x28",
+    "mean_intensity": 128.95408163265307,
+    "std_intensity": 71.65800960453153,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 128,
+    "dimensions": "28x28",
+    "mean_intensity": 125.3609693877551,
+    "std_intensity": 74.32975038931475,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 129,
+    "dimensions": "28x28",
+    "mean_intensity": 121.5765306122449,
+    "std_intensity": 74.77353059578816,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 130,
+    "dimensions": "28x28",
+    "mean_intensity": 129.49362244897958,
+    "std_intensity": 74.84911666445565,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 131,
+    "dimensions": "28x28",
+    "mean_intensity": 127.39158163265306,
+    "std_intensity": 73.09698603845852,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 132,
+    "dimensions": "28x28",
+    "mean_intensity": 127.43367346938776,
+    "std_intensity": 74.20206958975997,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 133,
+    "dimensions": "28x28",
+    "mean_intensity": 126.81377551020408,
+    "std_intensity": 72.6246536682923,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 134,
+    "dimensions": "28x28",
+    "mean_intensity": 128.13520408163265,
+    "std_intensity": 73.9442673845646,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 135,
+    "dimensions": "28x28",
+    "mean_intensity": 129.8125,
+    "std_intensity": 74.87402206696721,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 136,
+    "dimensions": "28x28",
+    "mean_intensity": 127.84311224489795,
+    "std_intensity": 73.93797130377607,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 137,
+    "dimensions": "28x28",
+    "mean_intensity": 125.59948979591837,
+    "std_intensity": 74.55105632879854,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 138,
+    "dimensions": "28x28",
+    "mean_intensity": 128.83035714285714,
+    "std_intensity": 74.45105601473483,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 139,
+    "dimensions": "28x28",
+    "mean_intensity": 127.87755102040816,
+    "std_intensity": 74.91992532250036,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 140,
+    "dimensions": "28x28",
+    "mean_intensity": 126.87372448979592,
+    "std_intensity": 74.89283584307628,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 141,
+    "dimensions": "28x28",
+    "mean_intensity": 131.1454081632653,
+    "std_intensity": 72.60090992385824,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 142,
+    "dimensions": "28x28",
+    "mean_intensity": 130.81760204081633,
+    "std_intensity": 74.18857760673819,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 143,
+    "dimensions": "28x28",
+    "mean_intensity": 134.16071428571428,
+    "std_intensity": 75.1014258913795,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 144,
+    "dimensions": "28x28",
+    "mean_intensity": 126.34948979591837,
+    "std_intensity": 73.14744544582467,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 145,
+    "dimensions": "28x28",
+    "mean_intensity": 130.1594387755102,
+    "std_intensity": 73.60435350430753,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 146,
+    "dimensions": "28x28",
+    "mean_intensity": 126.48979591836735,
+    "std_intensity": 74.6320559372964,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 147,
+    "dimensions": "28x28",
+    "mean_intensity": 125.95535714285714,
+    "std_intensity": 73.2197684140502,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 148,
+    "dimensions": "28x28",
+    "mean_intensity": 127.7359693877551,
+    "std_intensity": 74.77029744271807,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 149,
+    "dimensions": "28x28",
+    "mean_intensity": 124.69897959183673,
+    "std_intensity": 73.64279616860156,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 150,
+    "dimensions": "28x28",
+    "mean_intensity": 126.69005102040816,
+    "std_intensity": 74.44578977553748,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 151,
+    "dimensions": "28x28",
+    "mean_intensity": 126.2015306122449,
+    "std_intensity": 72.95226771666638,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 152,
+    "dimensions": "28x28",
+    "mean_intensity": 125.33035714285714,
+    "std_intensity": 74.93901804389122,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 153,
+    "dimensions": "28x28",
+    "mean_intensity": 123.99744897959184,
+    "std_intensity": 74.85928972945455,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 154,
+    "dimensions": "28x28",
+    "mean_intensity": 122.94260204081633,
+    "std_intensity": 73.94125509804579,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 155,
+    "dimensions": "28x28",
+    "mean_intensity": 128.02933673469389,
+    "std_intensity": 72.56151792964337,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 156,
+    "dimensions": "28x28",
+    "mean_intensity": 126.78954081632654,
+    "std_intensity": 73.63556734595436,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 157,
+    "dimensions": "28x28",
+    "mean_intensity": 130.17602040816325,
+    "std_intensity": 75.61074211339525,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 158,
+    "dimensions": "28x28",
+    "mean_intensity": 124.0140306122449,
+    "std_intensity": 74.20516620085843,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 159,
+    "dimensions": "28x28",
+    "mean_intensity": 128.66964285714286,
+    "std_intensity": 72.00883446987032,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 160,
+    "dimensions": "28x28",
+    "mean_intensity": 127.76275510204081,
+    "std_intensity": 74.18853424092956,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 161,
+    "dimensions": "28x28",
+    "mean_intensity": 123.6734693877551,
+    "std_intensity": 74.81850836581678,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 162,
+    "dimensions": "28x28",
+    "mean_intensity": 128.58035714285714,
+    "std_intensity": 72.07423307494737,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 163,
+    "dimensions": "28x28",
+    "mean_intensity": 125.53698979591837,
+    "std_intensity": 73.25414356964625,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 164,
+    "dimensions": "28x28",
+    "mean_intensity": 125.38010204081633,
+    "std_intensity": 72.45020043344759,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 165,
+    "dimensions": "28x28",
+    "mean_intensity": 128.86862244897958,
+    "std_intensity": 74.65990465027443,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 166,
+    "dimensions": "28x28",
+    "mean_intensity": 126.52806122448979,
+    "std_intensity": 72.87698769170319,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 167,
+    "dimensions": "28x28",
+    "mean_intensity": 124.92729591836735,
+    "std_intensity": 73.86493858991575,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 168,
+    "dimensions": "28x28",
+    "mean_intensity": 128.90561224489795,
+    "std_intensity": 73.86664949270555,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 169,
+    "dimensions": "28x28",
+    "mean_intensity": 128.0612244897959,
+    "std_intensity": 73.25612969080565,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 170,
+    "dimensions": "28x28",
+    "mean_intensity": 127.44132653061224,
+    "std_intensity": 73.92811681209777,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 171,
+    "dimensions": "28x28",
+    "mean_intensity": 127.04719387755102,
+    "std_intensity": 75.30242812088589,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 172,
+    "dimensions": "28x28",
+    "mean_intensity": 124.82525510204081,
+    "std_intensity": 72.53715673417163,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 173,
+    "dimensions": "28x28",
+    "mean_intensity": 125.90561224489795,
+    "std_intensity": 74.31006653819433,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 174,
+    "dimensions": "28x28",
+    "mean_intensity": 129.18367346938774,
+    "std_intensity": 74.40335423352566,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 175,
+    "dimensions": "28x28",
+    "mean_intensity": 128.00892857142858,
+    "std_intensity": 71.29153763700121,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 176,
+    "dimensions": "28x28",
+    "mean_intensity": 124.84693877551021,
+    "std_intensity": 74.61260180272339,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 177,
+    "dimensions": "28x28",
+    "mean_intensity": 126.62117346938776,
+    "std_intensity": 73.85096416992165,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 178,
+    "dimensions": "28x28",
+    "mean_intensity": 126.26658163265306,
+    "std_intensity": 73.17299606139194,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 179,
+    "dimensions": "28x28",
+    "mean_intensity": 131.06632653061226,
+    "std_intensity": 71.33222565655629,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 180,
+    "dimensions": "28x28",
+    "mean_intensity": 127.59821428571429,
+    "std_intensity": 73.45743975932525,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 181,
+    "dimensions": "28x28",
+    "mean_intensity": 132.63392857142858,
+    "std_intensity": 73.6671701716371,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 182,
+    "dimensions": "28x28",
+    "mean_intensity": 129.71428571428572,
+    "std_intensity": 72.48043367217198,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 183,
+    "dimensions": "28x28",
+    "mean_intensity": 127.7436224489796,
+    "std_intensity": 74.02103834377162,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 184,
+    "dimensions": "28x28",
+    "mean_intensity": 132.78954081632654,
+    "std_intensity": 75.1330645628506,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 185,
+    "dimensions": "28x28",
+    "mean_intensity": 130.1262755102041,
+    "std_intensity": 72.85359321468944,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 186,
+    "dimensions": "28x28",
+    "mean_intensity": 123.24744897959184,
+    "std_intensity": 74.26522721357642,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 187,
+    "dimensions": "28x28",
+    "mean_intensity": 126.11989795918367,
+    "std_intensity": 75.63920409356483,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 188,
+    "dimensions": "28x28",
+    "mean_intensity": 127.6670918367347,
+    "std_intensity": 74.9740270585709,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 189,
+    "dimensions": "28x28",
+    "mean_intensity": 121.97321428571429,
+    "std_intensity": 75.92748317238532,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 190,
+    "dimensions": "28x28",
+    "mean_intensity": 133.47448979591837,
+    "std_intensity": 74.06351977508484,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 191,
+    "dimensions": "28x28",
+    "mean_intensity": 133.62117346938774,
+    "std_intensity": 73.6633829691503,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 192,
+    "dimensions": "28x28",
+    "mean_intensity": 124.24872448979592,
+    "std_intensity": 75.62429371170009,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 193,
+    "dimensions": "28x28",
+    "mean_intensity": 131.35586734693877,
+    "std_intensity": 74.87155423751791,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 194,
+    "dimensions": "28x28",
+    "mean_intensity": 131.35586734693877,
+    "std_intensity": 73.45720773780789,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 195,
+    "dimensions": "28x28",
+    "mean_intensity": 128.78571428571428,
+    "std_intensity": 73.58869422925879,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 196,
+    "dimensions": "28x28",
+    "mean_intensity": 126.3890306122449,
+    "std_intensity": 75.06091357703735,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 197,
+    "dimensions": "28x28",
+    "mean_intensity": 127.5204081632653,
+    "std_intensity": 74.53472750278917,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 198,
+    "dimensions": "28x28",
+    "mean_intensity": 127.5420918367347,
+    "std_intensity": 72.84219569161297,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 199,
+    "dimensions": "28x28",
+    "mean_intensity": 128.14030612244898,
+    "std_intensity": 76.90142914138802,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  },
+  {
+    "image_id": 200,
+    "dimensions": "28x28",
+    "mean_intensity": 132.64923469387756,
+    "std_intensity": 73.00875803226833,
+    "pixel_count": 784,
+    "simulated_pixels": "28x28灰度矩阵（模拟）"
+  }
+]

@@ -1,0 +1,8 @@
+下载示例头盔设计文件
+https://bhpan.buaa.edu.cn/link/AADFEA52B3689C4AEDAD78F52187BEBB12
+文件名：stdTK.obj
+有效期限：2027-09-01 23:22
+
+下载完成后的数据结构如下
+helmet
+    stdTK.obj

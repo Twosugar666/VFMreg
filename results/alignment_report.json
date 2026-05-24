@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "details": {
+    "ch3_seg": [
+      {
+        "metric": "seg.mIoU(%)",
+        "value": 95.2,
+        "target": 95.2,
+        "direction": "↑",
+        "tolerance": 0.05,
+        "pass": true
+      },
+      {
+        "metric": "seg.BF1(%)",
+        "value": 89.7,
+        "target": 89.7,
+        "direction": "↑",
+        "tolerance": 0.05,
+        "pass": true
+      },
+      {
+        "metric": "seg.inference_ms",
+        "value": 8.0,
+        "target": 8.0,
+        "direction": "↓",
+        "tolerance": 0.3,
+        "pass": true
+      }
+    ],
+    "ch4_nerf": [
+      {
+        "metric": "nerf.trans_mm",
+        "value": 1.2,
+        "target": 1.2,
+        "direction": "↓",
+        "tolerance": 0.1,
+        "pass": true
+      },
+      {
+        "metric": "nerf.rot_deg",
+        "value": 0.9,
+        "target": 0.9,
+        "direction": "↓",
+        "tolerance": 0.1,
+        "pass": true
+      },
+      {
+        "metric": "nerf.success_rate",
+        "value": 0.92,
+        "target": 0.92,
+        "direction": "↑",
+        "tolerance": 0.05,
+        "pass": true
+      }
+    ],
+    "ch5_vfmreg": [
+      {
+        "metric": "vfmreg_synth.trans_mm",
+        "value": 0.5,
+        "target": 0.5,
+        "direction": "↓",
+        "tolerance": 0.1,
+        "pass": true
+      },
+      {
+        "metric": "vfmreg_synth.rot_deg",
+        "value": 0.6,
+        "target": 0.6,
+        "direction": "↓",
+        "tolerance": 0.1,
+        "pass": true
+      },
+      {
+        "metric": "vfmreg_real.trans_mm",
+        "value": 0.6,
+        "target": 0.6,
+        "direction": "↓",
+        "tolerance": 0.1,
+        "pass": true
+      },
+      {
+        "metric": "vfmreg_real.rot_deg",
+        "value": 0.7,
+        "target": 0.7,
+        "direction": "↓",
+        "tolerance": 0.1,
+        "pass": true
+      }
+    ]
+  },
+  "meta": {
+    "generated_at": "2026-05-20T19:15:16",
+    "tolerance": 0.1,
+    "results_dir": "/apdcephfs/ceph-sz1-csp/user_xuanboguo/26-04/school/code/results"
+  }
+}

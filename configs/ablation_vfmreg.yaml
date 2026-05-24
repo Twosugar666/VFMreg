@@ -1,0 +1,40 @@
+# ==================================================================
+# 第5章 VFMReg 消融实验配置（继承 base.yaml）
+# 用于 ablation table 复现：去掉某项 loss / 换 backbone / 不同视角数等
+# ==================================================================
+inherit: ./base.yaml
+
+experiment_group: vfmreg_ablation
+
+variants:
+  - name: full
+    desc: 完整模型（论文最终）
+    overrides: {}
+
+  - name: no_render_loss
+    desc: 去掉可微渲染损失
+    overrides:
+      vfmreg.stage1.losses.render: {w_iou: 0.0, w_rgb: 0.0, w_silhouette: 0.0}
+      vfmreg.stage2.losses.render: {w_iou: 0.0, w_rgb: 0.0, w_silhouette: 0.0}
+
+  - name: no_geodesic
+    desc: 去掉测地线旋转损失
+    overrides:
+      vfmreg.stage1.losses.pose: {w_trans: 1.0, w_rot6d: 1.0, w_geo: 0.0, w_hinge: 0.05}
+
+  - name: backbone_vitb14
+    desc: backbone 改用 ViT-B/14（更轻量）
+    overrides:
+      vfmreg.backbone: dinov2_vitb14
+      vfmreg.backbone_weights: ./models/weights/dinov3/dinov2_vitb14_pretrain.pth
+
+  - name: single_view
+    desc: 只用单视角输入
+    overrides:
+      vfmreg.num_views: 1
+
+  - name: unfrozen_backbone
+    desc: 解冻 backbone 微调
+    overrides:
+      vfmreg.freeze_backbone: false
+      vfmreg.stage1.lr: 1.0e-5

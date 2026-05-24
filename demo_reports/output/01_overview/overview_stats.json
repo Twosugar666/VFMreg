@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026-05-19T15:28:32.428737",
+  "data_root": "/apdcephfs/ceph-sz1-csp/user_xuanboguo/26-04/school/code/data",
+  "datasets": [
+    {
+      "name": "human_parsing",
+      "path": "head_seg/human_parsing",
+      "category": "头部分割（第3章）",
+      "paper_chapter": "Ch.3",
+      "color": "#3498db",
+      "size_bytes": 796588784,
+      "size_human": "759.7 MB",
+      "sample_count": 17706,
+      "exists": true
+    },
+    {
+      "name": "celebA_faces",
+      "path": "head_seg/celebA_faces",
+      "category": "头部分割（第3章）",
+      "paper_chapter": "Ch.3",
+      "color": "#5dade2",
+      "size_bytes": 462457005,
+      "size_human": "441.0 MB",
+      "sample_count": 67533,
+      "exists": true
+    },
+    {
+      "name": "cppe5",
+      "path": "head_seg/cppe5",
+      "category": "头部分割（第3章）",
+      "paper_chapter": "Ch.3",
+      "color": "#85c1e9",
+      "size_bytes": 241165428,
+      "size_human": "230.0 MB",
+      "sample_count": 1029,
+      "exists": true
+    },
+    {
+      "name": "protective_equipment",
+      "path": "head_seg/protective_equipment",
+      "category": "头盔分割（第3章）",
+      "paper_chapter": "Ch.3",
+      "color": "#1f618d",
+      "size_bytes": 2274994745,
+      "size_human": "2.1 GB",
+      "sample_count": 11982,
+      "exists": true
+    },
+    {
+      "name": "afhqv2",
+      "path": "head_seg/afhqv2",
+      "category": "域外测试（第3章）",
+      "paper_chapter": "Ch.3",
+      "color": "#a9cce3",
+      "size_bytes": 6516747239,
+      "size_human": "6.1 GB",
+      "sample_count": 12155,
+      "exists": true
+    },
+    {
+      "name": "dog_food_bg",
+      "path": "hdri/dog_food_bg",
+      "category": "背景域随机化（第5章）",
+      "paper_chapter": "Ch.5",
+      "color": "#27ae60",
+      "size_bytes": 285097522,
+      "size_human": "271.9 MB",
+      "sample_count": 3000,
+      "exists": true
+    },
+    {
+      "name": "wikiart_bg",
+      "path": "hdri/wikiart_bg",
+      "category": "背景域随机化（第5章）",
+      "paper_chapter": "Ch.5",
+      "color": "#52be80",
+      "size_bytes": 0,
+      "size_human": "0.0 B",
+      "sample_count": 0,
+      "exists": false
+    },
+    {
+      "name": "aloha_multiview",
+      "path": "nerf_test/aloha_multiview",
+      "category": "NeRF多视角（第4章）",
+      "paper_chapter": "Ch.4",
+      "color": "#e67e22",
+      "size_bytes": 0,
+      "size_human": "0.0 B",
+      "sample_count": 0,
+      "exists": false
+    }
+  ],
+  "summary": {
+    "total_size_bytes": 10577050723,
+    "total_size_human": "9.9 GB",
+    "total_samples": 113405,
+    "available_count": 6,
+    "total_count": 8
+  }
+}

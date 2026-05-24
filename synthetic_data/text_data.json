@@ -1,0 +1,1402 @@
+[
+  {
+    "text_id": 1,
+    "content": "样本编号 1 的实验结果，评估结果为：良好",
+    "length": 21,
+    "category": "测试结果",
+    "confidence": 0.73
+  },
+  {
+    "text_id": 2,
+    "content": "算法 KNN 在数据集 MNIST 上的表现，评估结果为：优秀",
+    "length": 31,
+    "category": "实验记录",
+    "confidence": 0.763
+  },
+  {
+    "text_id": 3,
+    "content": "算法 XGBoost 在数据集 CIFAR10 上的表现，评估结果为：异常",
+    "length": 37,
+    "category": "观测报告",
+    "confidence": 0.764
+  },
+  {
+    "text_id": 4,
+    "content": "算法 RandomForest 在数据集 COCO 上的表现，评估结果为：一般",
+    "length": 39,
+    "category": "观测报告",
+    "confidence": 0.745
+  },
+  {
+    "text_id": 5,
+    "content": "实验批次 2 的观测值，评估结果为：一般",
+    "length": 20,
+    "category": "观测报告",
+    "confidence": 0.875
+  },
+  {
+    "text_id": 6,
+    "content": "样本编号 6 的实验结果，评估结果为：优秀",
+    "length": 21,
+    "category": "测试结果",
+    "confidence": 0.785
+  },
+  {
+    "text_id": 7,
+    "content": "算法 RandomForest 在数据集 MNIST 上的表现，评估结果为：优秀",
+    "length": 40,
+    "category": "测试结果",
+    "confidence": 0.766
+  },
+  {
+    "text_id": 8,
+    "content": "实验批次 2 的观测值，评估结果为：一般",
+    "length": 20,
+    "category": "观测报告",
+    "confidence": 0.884
+  },
+  {
+    "text_id": 9,
+    "content": "实验批次 3 的观测值，评估结果为：一般",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.972
+  },
+  {
+    "text_id": 10,
+    "content": "样本编号 10 的实验结果，评估结果为：良好",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.81
+  },
+  {
+    "text_id": 11,
+    "content": "算法 SVM 在数据集 CIFAR10 上的表现，评估结果为：优秀",
+    "length": 33,
+    "category": "观测报告",
+    "confidence": 0.816
+  },
+  {
+    "text_id": 12,
+    "content": "样本编号 12 的实验结果，评估结果为：较差",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.957
+  },
+  {
+    "text_id": 13,
+    "content": "传感器 湿度 在时间 2026-05-23 18:05:38 的读数，评估结果为：异常",
+    "length": 43,
+    "category": "测试结果",
+    "confidence": 0.776
+  },
+  {
+    "text_id": 14,
+    "content": "算法 KNN 在数据集 ImageNet 上的表现，评估结果为：良好",
+    "length": 34,
+    "category": "实验记录",
+    "confidence": 0.848
+  },
+  {
+    "text_id": 15,
+    "content": "样本编号 15 的实验结果，评估结果为：较差",
+    "length": 22,
+    "category": "测试结果",
+    "confidence": 0.718
+  },
+  {
+    "text_id": 16,
+    "content": "传感器 加速度 在时间 2026-05-23 18:05:38 的读数，评估结果为：异常",
+    "length": 44,
+    "category": "实验记录",
+    "confidence": 0.897
+  },
+  {
+    "text_id": 17,
+    "content": "样本编号 17 的实验结果，评估结果为：一般",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.746
+  },
+  {
+    "text_id": 18,
+    "content": "样本编号 18 的实验结果，评估结果为：优秀",
+    "length": 22,
+    "category": "测试结果",
+    "confidence": 0.787
+  },
+  {
+    "text_id": 19,
+    "content": "算法 RandomForest 在数据集 ImageNet 上的表现，评估结果为：良好",
+    "length": 43,
+    "category": "测试结果",
+    "confidence": 0.977
+  },
+  {
+    "text_id": 20,
+    "content": "算法 NeuralNetwork 在数据集 COCO 上的表现，评估结果为：优秀",
+    "length": 40,
+    "category": "实验记录",
+    "confidence": 0.969
+  },
+  {
+    "text_id": 21,
+    "content": "实验批次 4 的观测值，评估结果为：优秀",
+    "length": 20,
+    "category": "实验记录",
+    "confidence": 0.912
+  },
+  {
+    "text_id": 22,
+    "content": "样本编号 22 的实验结果，评估结果为：异常",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.777
+  },
+  {
+    "text_id": 23,
+    "content": "算法 XGBoost 在数据集 CIFAR10 上的表现，评估结果为：一般",
+    "length": 37,
+    "category": "观测报告",
+    "confidence": 0.989
+  },
+  {
+    "text_id": 24,
+    "content": "实验批次 8 的观测值，评估结果为：良好",
+    "length": 20,
+    "category": "实验记录",
+    "confidence": 0.719
+  },
+  {
+    "text_id": 25,
+    "content": "样本编号 25 的实验结果，评估结果为：良好",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.721
+  },
+  {
+    "text_id": 26,
+    "content": "样本编号 26 的实验结果，评估结果为：优秀",
+    "length": 22,
+    "category": "测试结果",
+    "confidence": 0.769
+  },
+  {
+    "text_id": 27,
+    "content": "传感器 陀螺仪 在时间 2026-05-23 18:05:38 的读数，评估结果为：异常",
+    "length": 44,
+    "category": "观测报告",
+    "confidence": 0.77
+  },
+  {
+    "text_id": 28,
+    "content": "传感器 压力 在时间 2026-05-23 18:05:38 的读数，评估结果为：较差",
+    "length": 43,
+    "category": "观测报告",
+    "confidence": 0.823
+  },
+  {
+    "text_id": 29,
+    "content": "传感器 温度 在时间 2026-05-23 18:05:38 的读数，评估结果为：一般",
+    "length": 43,
+    "category": "实验记录",
+    "confidence": 0.772
+  },
+  {
+    "text_id": 30,
+    "content": "第 30 次测试数据记录，评估结果为：良好",
+    "length": 21,
+    "category": "观测报告",
+    "confidence": 0.834
+  },
+  {
+    "text_id": 31,
+    "content": "样本编号 31 的实验结果，评估结果为：异常",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.981
+  },
+  {
+    "text_id": 32,
+    "content": "第 32 次测试数据记录，评估结果为：良好",
+    "length": 21,
+    "category": "观测报告",
+    "confidence": 0.962
+  },
+  {
+    "text_id": 33,
+    "content": "第 33 次测试数据记录，评估结果为：较差",
+    "length": 21,
+    "category": "观测报告",
+    "confidence": 0.823
+  },
+  {
+    "text_id": 34,
+    "content": "算法 RandomForest 在数据集 ImageNet 上的表现，评估结果为：良好",
+    "length": 43,
+    "category": "实验记录",
+    "confidence": 0.868
+  },
+  {
+    "text_id": 35,
+    "content": "算法 SVM 在数据集 MNIST 上的表现，评估结果为：异常",
+    "length": 31,
+    "category": "观测报告",
+    "confidence": 0.846
+  },
+  {
+    "text_id": 36,
+    "content": "算法 XGBoost 在数据集 MNIST 上的表现，评估结果为：良好",
+    "length": 35,
+    "category": "实验记录",
+    "confidence": 0.873
+  },
+  {
+    "text_id": 37,
+    "content": "第 37 次测试数据记录，评估结果为：异常",
+    "length": 21,
+    "category": "测试结果",
+    "confidence": 0.712
+  },
+  {
+    "text_id": 38,
+    "content": "样本编号 38 的实验结果，评估结果为：一般",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.759
+  },
+  {
+    "text_id": 39,
+    "content": "实验批次 4 的观测值，评估结果为：一般",
+    "length": 20,
+    "category": "观测报告",
+    "confidence": 0.792
+  },
+  {
+    "text_id": 40,
+    "content": "样本编号 40 的实验结果，评估结果为：优秀",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.856
+  },
+  {
+    "text_id": 41,
+    "content": "算法 NeuralNetwork 在数据集 MNIST 上的表现，评估结果为：良好",
+    "length": 41,
+    "category": "观测报告",
+    "confidence": 0.783
+  },
+  {
+    "text_id": 42,
+    "content": "传感器 湿度 在时间 2026-05-23 18:05:38 的读数，评估结果为：优秀",
+    "length": 43,
+    "category": "测试结果",
+    "confidence": 0.937
+  },
+  {
+    "text_id": 43,
+    "content": "实验批次 2 的观测值，评估结果为：优秀",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.86
+  },
+  {
+    "text_id": 44,
+    "content": "实验批次 5 的观测值，评估结果为：良好",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.884
+  },
+  {
+    "text_id": 45,
+    "content": "实验批次 9 的观测值，评估结果为：优秀",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.823
+  },
+  {
+    "text_id": 46,
+    "content": "实验批次 1 的观测值，评估结果为：一般",
+    "length": 20,
+    "category": "实验记录",
+    "confidence": 0.915
+  },
+  {
+    "text_id": 47,
+    "content": "算法 SVM 在数据集 MNIST 上的表现，评估结果为：优秀",
+    "length": 31,
+    "category": "测试结果",
+    "confidence": 0.962
+  },
+  {
+    "text_id": 48,
+    "content": "算法 XGBoost 在数据集 Synthetic 上的表现，评估结果为：良好",
+    "length": 39,
+    "category": "观测报告",
+    "confidence": 0.737
+  },
+  {
+    "text_id": 49,
+    "content": "实验批次 6 的观测值，评估结果为：良好",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.73
+  },
+  {
+    "text_id": 50,
+    "content": "算法 RandomForest 在数据集 CIFAR10 上的表现，评估结果为：良好",
+    "length": 42,
+    "category": "实验记录",
+    "confidence": 0.956
+  },
+  {
+    "text_id": 51,
+    "content": "样本编号 51 的实验结果，评估结果为：一般",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.928
+  },
+  {
+    "text_id": 52,
+    "content": "样本编号 52 的实验结果，评估结果为：良好",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.801
+  },
+  {
+    "text_id": 53,
+    "content": "第 53 次测试数据记录，评估结果为：一般",
+    "length": 21,
+    "category": "观测报告",
+    "confidence": 0.951
+  },
+  {
+    "text_id": 54,
+    "content": "实验批次 6 的观测值，评估结果为：一般",
+    "length": 20,
+    "category": "实验记录",
+    "confidence": 0.733
+  },
+  {
+    "text_id": 55,
+    "content": "实验批次 3 的观测值，评估结果为：优秀",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.826
+  },
+  {
+    "text_id": 56,
+    "content": "实验批次 7 的观测值，评估结果为：较差",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.755
+  },
+  {
+    "text_id": 57,
+    "content": "样本编号 57 的实验结果，评估结果为：良好",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.825
+  },
+  {
+    "text_id": 58,
+    "content": "实验批次 10 的观测值，评估结果为：异常",
+    "length": 21,
+    "category": "观测报告",
+    "confidence": 0.893
+  },
+  {
+    "text_id": 59,
+    "content": "实验批次 7 的观测值，评估结果为：良好",
+    "length": 20,
+    "category": "观测报告",
+    "confidence": 0.893
+  },
+  {
+    "text_id": 60,
+    "content": "传感器 陀螺仪 在时间 2026-05-23 18:05:38 的读数，评估结果为：较差",
+    "length": 44,
+    "category": "测试结果",
+    "confidence": 0.942
+  },
+  {
+    "text_id": 61,
+    "content": "实验批次 5 的观测值，评估结果为：异常",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.793
+  },
+  {
+    "text_id": 62,
+    "content": "传感器 压力 在时间 2026-05-23 18:05:38 的读数，评估结果为：良好",
+    "length": 43,
+    "category": "测试结果",
+    "confidence": 0.725
+  },
+  {
+    "text_id": 63,
+    "content": "算法 SVM 在数据集 CIFAR10 上的表现，评估结果为：一般",
+    "length": 33,
+    "category": "实验记录",
+    "confidence": 0.934
+  },
+  {
+    "text_id": 64,
+    "content": "第 64 次测试数据记录，评估结果为：异常",
+    "length": 21,
+    "category": "实验记录",
+    "confidence": 0.832
+  },
+  {
+    "text_id": 65,
+    "content": "算法 KNN 在数据集 COCO 上的表现，评估结果为：良好",
+    "length": 30,
+    "category": "实验记录",
+    "confidence": 0.89
+  },
+  {
+    "text_id": 66,
+    "content": "样本编号 66 的实验结果，评估结果为：异常",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.715
+  },
+  {
+    "text_id": 67,
+    "content": "第 67 次测试数据记录，评估结果为：异常",
+    "length": 21,
+    "category": "测试结果",
+    "confidence": 0.873
+  },
+  {
+    "text_id": 68,
+    "content": "传感器 陀螺仪 在时间 2026-05-23 18:05:38 的读数，评估结果为：较差",
+    "length": 44,
+    "category": "实验记录",
+    "confidence": 0.916
+  },
+  {
+    "text_id": 69,
+    "content": "传感器 湿度 在时间 2026-05-23 18:05:38 的读数，评估结果为：异常",
+    "length": 43,
+    "category": "观测报告",
+    "confidence": 0.882
+  },
+  {
+    "text_id": 70,
+    "content": "实验批次 8 的观测值，评估结果为：一般",
+    "length": 20,
+    "category": "观测报告",
+    "confidence": 0.793
+  },
+  {
+    "text_id": 71,
+    "content": "算法 RandomForest 在数据集 CIFAR10 上的表现，评估结果为：较差",
+    "length": 42,
+    "category": "测试结果",
+    "confidence": 0.744
+  },
+  {
+    "text_id": 72,
+    "content": "第 72 次测试数据记录，评估结果为：异常",
+    "length": 21,
+    "category": "观测报告",
+    "confidence": 0.821
+  },
+  {
+    "text_id": 73,
+    "content": "第 73 次测试数据记录，评估结果为：异常",
+    "length": 21,
+    "category": "观测报告",
+    "confidence": 0.838
+  },
+  {
+    "text_id": 74,
+    "content": "实验批次 5 的观测值，评估结果为：异常",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.96
+  },
+  {
+    "text_id": 75,
+    "content": "传感器 湿度 在时间 2026-05-23 18:05:38 的读数，评估结果为：优秀",
+    "length": 43,
+    "category": "观测报告",
+    "confidence": 0.797
+  },
+  {
+    "text_id": 76,
+    "content": "传感器 加速度 在时间 2026-05-23 18:05:38 的读数，评估结果为：异常",
+    "length": 44,
+    "category": "实验记录",
+    "confidence": 0.963
+  },
+  {
+    "text_id": 77,
+    "content": "算法 SVM 在数据集 COCO 上的表现，评估结果为：良好",
+    "length": 30,
+    "category": "观测报告",
+    "confidence": 0.753
+  },
+  {
+    "text_id": 78,
+    "content": "实验批次 7 的观测值，评估结果为：一般",
+    "length": 20,
+    "category": "观测报告",
+    "confidence": 0.921
+  },
+  {
+    "text_id": 79,
+    "content": "传感器 加速度 在时间 2026-05-23 18:05:38 的读数，评估结果为：较差",
+    "length": 44,
+    "category": "实验记录",
+    "confidence": 0.917
+  },
+  {
+    "text_id": 80,
+    "content": "样本编号 80 的实验结果，评估结果为：优秀",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.758
+  },
+  {
+    "text_id": 81,
+    "content": "样本编号 81 的实验结果，评估结果为：较差",
+    "length": 22,
+    "category": "测试结果",
+    "confidence": 0.733
+  },
+  {
+    "text_id": 82,
+    "content": "第 82 次测试数据记录，评估结果为：异常",
+    "length": 21,
+    "category": "测试结果",
+    "confidence": 0.979
+  },
+  {
+    "text_id": 83,
+    "content": "样本编号 83 的实验结果，评估结果为：优秀",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.867
+  },
+  {
+    "text_id": 84,
+    "content": "传感器 压力 在时间 2026-05-23 18:05:38 的读数，评估结果为：良好",
+    "length": 43,
+    "category": "实验记录",
+    "confidence": 0.902
+  },
+  {
+    "text_id": 85,
+    "content": "实验批次 10 的观测值，评估结果为：一般",
+    "length": 21,
+    "category": "测试结果",
+    "confidence": 0.824
+  },
+  {
+    "text_id": 86,
+    "content": "实验批次 2 的观测值，评估结果为：较差",
+    "length": 20,
+    "category": "观测报告",
+    "confidence": 0.731
+  },
+  {
+    "text_id": 87,
+    "content": "实验批次 8 的观测值，评估结果为：异常",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.778
+  },
+  {
+    "text_id": 88,
+    "content": "算法 KNN 在数据集 Synthetic 上的表现，评估结果为：一般",
+    "length": 35,
+    "category": "观测报告",
+    "confidence": 0.947
+  },
+  {
+    "text_id": 89,
+    "content": "样本编号 89 的实验结果，评估结果为：异常",
+    "length": 22,
+    "category": "测试结果",
+    "confidence": 0.894
+  },
+  {
+    "text_id": 90,
+    "content": "实验批次 1 的观测值，评估结果为：较差",
+    "length": 20,
+    "category": "实验记录",
+    "confidence": 0.803
+  },
+  {
+    "text_id": 91,
+    "content": "实验批次 6 的观测值，评估结果为：异常",
+    "length": 20,
+    "category": "实验记录",
+    "confidence": 0.85
+  },
+  {
+    "text_id": 92,
+    "content": "第 92 次测试数据记录，评估结果为：异常",
+    "length": 21,
+    "category": "实验记录",
+    "confidence": 0.9
+  },
+  {
+    "text_id": 93,
+    "content": "传感器 温度 在时间 2026-05-23 18:05:38 的读数，评估结果为：良好",
+    "length": 43,
+    "category": "观测报告",
+    "confidence": 0.901
+  },
+  {
+    "text_id": 94,
+    "content": "实验批次 10 的观测值，评估结果为：异常",
+    "length": 21,
+    "category": "观测报告",
+    "confidence": 0.823
+  },
+  {
+    "text_id": 95,
+    "content": "算法 KNN 在数据集 ImageNet 上的表现，评估结果为：一般",
+    "length": 34,
+    "category": "观测报告",
+    "confidence": 0.767
+  },
+  {
+    "text_id": 96,
+    "content": "第 96 次测试数据记录，评估结果为：良好",
+    "length": 21,
+    "category": "实验记录",
+    "confidence": 0.914
+  },
+  {
+    "text_id": 97,
+    "content": "实验批次 10 的观测值，评估结果为：优秀",
+    "length": 21,
+    "category": "实验记录",
+    "confidence": 0.786
+  },
+  {
+    "text_id": 98,
+    "content": "实验批次 3 的观测值，评估结果为：良好",
+    "length": 20,
+    "category": "观测报告",
+    "confidence": 0.713
+  },
+  {
+    "text_id": 99,
+    "content": "样本编号 99 的实验结果，评估结果为：优秀",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.866
+  },
+  {
+    "text_id": 100,
+    "content": "传感器 加速度 在时间 2026-05-23 18:05:38 的读数，评估结果为：优秀",
+    "length": 44,
+    "category": "观测报告",
+    "confidence": 0.973
+  },
+  {
+    "text_id": 101,
+    "content": "传感器 温度 在时间 2026-05-23 18:05:38 的读数，评估结果为：优秀",
+    "length": 43,
+    "category": "测试结果",
+    "confidence": 0.883
+  },
+  {
+    "text_id": 102,
+    "content": "样本编号 102 的实验结果，评估结果为：优秀",
+    "length": 23,
+    "category": "实验记录",
+    "confidence": 0.734
+  },
+  {
+    "text_id": 103,
+    "content": "传感器 陀螺仪 在时间 2026-05-23 18:05:38 的读数，评估结果为：异常",
+    "length": 44,
+    "category": "观测报告",
+    "confidence": 0.831
+  },
+  {
+    "text_id": 104,
+    "content": "传感器 陀螺仪 在时间 2026-05-23 18:05:38 的读数，评估结果为：异常",
+    "length": 44,
+    "category": "测试结果",
+    "confidence": 0.717
+  },
+  {
+    "text_id": 105,
+    "content": "样本编号 105 的实验结果，评估结果为：良好",
+    "length": 23,
+    "category": "实验记录",
+    "confidence": 0.75
+  },
+  {
+    "text_id": 106,
+    "content": "样本编号 106 的实验结果，评估结果为：异常",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.784
+  },
+  {
+    "text_id": 107,
+    "content": "第 107 次测试数据记录，评估结果为：良好",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.928
+  },
+  {
+    "text_id": 108,
+    "content": "算法 SVM 在数据集 Synthetic 上的表现，评估结果为：良好",
+    "length": 35,
+    "category": "测试结果",
+    "confidence": 0.743
+  },
+  {
+    "text_id": 109,
+    "content": "实验批次 3 的观测值，评估结果为：一般",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.917
+  },
+  {
+    "text_id": 110,
+    "content": "算法 SVM 在数据集 COCO 上的表现，评估结果为：一般",
+    "length": 30,
+    "category": "测试结果",
+    "confidence": 0.817
+  },
+  {
+    "text_id": 111,
+    "content": "实验批次 9 的观测值，评估结果为：优秀",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.712
+  },
+  {
+    "text_id": 112,
+    "content": "传感器 陀螺仪 在时间 2026-05-23 18:05:38 的读数，评估结果为：优秀",
+    "length": 44,
+    "category": "实验记录",
+    "confidence": 0.979
+  },
+  {
+    "text_id": 113,
+    "content": "算法 NeuralNetwork 在数据集 Synthetic 上的表现，评估结果为：优秀",
+    "length": 45,
+    "category": "实验记录",
+    "confidence": 0.836
+  },
+  {
+    "text_id": 114,
+    "content": "传感器 压力 在时间 2026-05-23 18:05:38 的读数，评估结果为：较差",
+    "length": 43,
+    "category": "实验记录",
+    "confidence": 0.836
+  },
+  {
+    "text_id": 115,
+    "content": "传感器 湿度 在时间 2026-05-23 18:05:38 的读数，评估结果为：一般",
+    "length": 43,
+    "category": "观测报告",
+    "confidence": 0.901
+  },
+  {
+    "text_id": 116,
+    "content": "实验批次 7 的观测值，评估结果为：优秀",
+    "length": 20,
+    "category": "观测报告",
+    "confidence": 0.773
+  },
+  {
+    "text_id": 117,
+    "content": "样本编号 117 的实验结果，评估结果为：较差",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.716
+  },
+  {
+    "text_id": 118,
+    "content": "算法 KNN 在数据集 COCO 上的表现，评估结果为：优秀",
+    "length": 30,
+    "category": "实验记录",
+    "confidence": 0.777
+  },
+  {
+    "text_id": 119,
+    "content": "第 119 次测试数据记录，评估结果为：优秀",
+    "length": 22,
+    "category": "测试结果",
+    "confidence": 0.877
+  },
+  {
+    "text_id": 120,
+    "content": "第 120 次测试数据记录，评估结果为：异常",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.727
+  },
+  {
+    "text_id": 121,
+    "content": "样本编号 121 的实验结果，评估结果为：一般",
+    "length": 23,
+    "category": "测试结果",
+    "confidence": 0.905
+  },
+  {
+    "text_id": 122,
+    "content": "传感器 加速度 在时间 2026-05-23 18:05:38 的读数，评估结果为：异常",
+    "length": 44,
+    "category": "实验记录",
+    "confidence": 0.811
+  },
+  {
+    "text_id": 123,
+    "content": "算法 SVM 在数据集 ImageNet 上的表现，评估结果为：较差",
+    "length": 34,
+    "category": "观测报告",
+    "confidence": 0.971
+  },
+  {
+    "text_id": 124,
+    "content": "算法 NeuralNetwork 在数据集 ImageNet 上的表现，评估结果为：异常",
+    "length": 44,
+    "category": "测试结果",
+    "confidence": 0.99
+  },
+  {
+    "text_id": 125,
+    "content": "传感器 加速度 在时间 2026-05-23 18:05:38 的读数，评估结果为：一般",
+    "length": 44,
+    "category": "观测报告",
+    "confidence": 0.86
+  },
+  {
+    "text_id": 126,
+    "content": "算法 NeuralNetwork 在数据集 CIFAR10 上的表现，评估结果为：良好",
+    "length": 43,
+    "category": "测试结果",
+    "confidence": 0.811
+  },
+  {
+    "text_id": 127,
+    "content": "传感器 湿度 在时间 2026-05-23 18:05:38 的读数，评估结果为：较差",
+    "length": 43,
+    "category": "测试结果",
+    "confidence": 0.93
+  },
+  {
+    "text_id": 128,
+    "content": "第 128 次测试数据记录，评估结果为：异常",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.952
+  },
+  {
+    "text_id": 129,
+    "content": "传感器 陀螺仪 在时间 2026-05-23 18:05:38 的读数，评估结果为：良好",
+    "length": 44,
+    "category": "观测报告",
+    "confidence": 0.953
+  },
+  {
+    "text_id": 130,
+    "content": "第 130 次测试数据记录，评估结果为：异常",
+    "length": 22,
+    "category": "测试结果",
+    "confidence": 0.815
+  },
+  {
+    "text_id": 131,
+    "content": "样本编号 131 的实验结果，评估结果为：较差",
+    "length": 23,
+    "category": "测试结果",
+    "confidence": 0.71
+  },
+  {
+    "text_id": 132,
+    "content": "样本编号 132 的实验结果，评估结果为：较差",
+    "length": 23,
+    "category": "实验记录",
+    "confidence": 0.921
+  },
+  {
+    "text_id": 133,
+    "content": "样本编号 133 的实验结果，评估结果为：优秀",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.931
+  },
+  {
+    "text_id": 134,
+    "content": "实验批次 6 的观测值，评估结果为：良好",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.819
+  },
+  {
+    "text_id": 135,
+    "content": "第 135 次测试数据记录，评估结果为：较差",
+    "length": 22,
+    "category": "测试结果",
+    "confidence": 0.898
+  },
+  {
+    "text_id": 136,
+    "content": "传感器 压力 在时间 2026-05-23 18:05:38 的读数，评估结果为：一般",
+    "length": 43,
+    "category": "观测报告",
+    "confidence": 0.774
+  },
+  {
+    "text_id": 137,
+    "content": "样本编号 137 的实验结果，评估结果为：优秀",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.974
+  },
+  {
+    "text_id": 138,
+    "content": "算法 NeuralNetwork 在数据集 COCO 上的表现，评估结果为：一般",
+    "length": 40,
+    "category": "实验记录",
+    "confidence": 0.99
+  },
+  {
+    "text_id": 139,
+    "content": "传感器 压力 在时间 2026-05-23 18:05:38 的读数，评估结果为：一般",
+    "length": 43,
+    "category": "测试结果",
+    "confidence": 0.786
+  },
+  {
+    "text_id": 140,
+    "content": "实验批次 1 的观测值，评估结果为：异常",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.926
+  },
+  {
+    "text_id": 141,
+    "content": "样本编号 141 的实验结果，评估结果为：异常",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.764
+  },
+  {
+    "text_id": 142,
+    "content": "第 142 次测试数据记录，评估结果为：优秀",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.929
+  },
+  {
+    "text_id": 143,
+    "content": "样本编号 143 的实验结果，评估结果为：一般",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.917
+  },
+  {
+    "text_id": 144,
+    "content": "第 144 次测试数据记录，评估结果为：异常",
+    "length": 22,
+    "category": "测试结果",
+    "confidence": 0.965
+  },
+  {
+    "text_id": 145,
+    "content": "第 145 次测试数据记录，评估结果为：优秀",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.979
+  },
+  {
+    "text_id": 146,
+    "content": "第 146 次测试数据记录，评估结果为：优秀",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.704
+  },
+  {
+    "text_id": 147,
+    "content": "算法 NeuralNetwork 在数据集 ImageNet 上的表现，评估结果为：异常",
+    "length": 44,
+    "category": "观测报告",
+    "confidence": 0.939
+  },
+  {
+    "text_id": 148,
+    "content": "实验批次 2 的观测值，评估结果为：异常",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.795
+  },
+  {
+    "text_id": 149,
+    "content": "算法 KNN 在数据集 ImageNet 上的表现，评估结果为：较差",
+    "length": 34,
+    "category": "实验记录",
+    "confidence": 0.741
+  },
+  {
+    "text_id": 150,
+    "content": "样本编号 150 的实验结果，评估结果为：良好",
+    "length": 23,
+    "category": "测试结果",
+    "confidence": 0.739
+  },
+  {
+    "text_id": 151,
+    "content": "传感器 陀螺仪 在时间 2026-05-23 18:05:38 的读数，评估结果为：良好",
+    "length": 44,
+    "category": "观测报告",
+    "confidence": 0.89
+  },
+  {
+    "text_id": 152,
+    "content": "传感器 加速度 在时间 2026-05-23 18:05:38 的读数，评估结果为：一般",
+    "length": 44,
+    "category": "实验记录",
+    "confidence": 0.829
+  },
+  {
+    "text_id": 153,
+    "content": "第 153 次测试数据记录，评估结果为：一般",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.815
+  },
+  {
+    "text_id": 154,
+    "content": "第 154 次测试数据记录，评估结果为：异常",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.715
+  },
+  {
+    "text_id": 155,
+    "content": "实验批次 4 的观测值，评估结果为：优秀",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.76
+  },
+  {
+    "text_id": 156,
+    "content": "第 156 次测试数据记录，评估结果为：优秀",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.949
+  },
+  {
+    "text_id": 157,
+    "content": "第 157 次测试数据记录，评估结果为：优秀",
+    "length": 22,
+    "category": "测试结果",
+    "confidence": 0.951
+  },
+  {
+    "text_id": 158,
+    "content": "第 158 次测试数据记录，评估结果为：一般",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.751
+  },
+  {
+    "text_id": 159,
+    "content": "样本编号 159 的实验结果，评估结果为：优秀",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.83
+  },
+  {
+    "text_id": 160,
+    "content": "实验批次 9 的观测值，评估结果为：异常",
+    "length": 20,
+    "category": "实验记录",
+    "confidence": 0.974
+  },
+  {
+    "text_id": 161,
+    "content": "样本编号 161 的实验结果，评估结果为：优秀",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.946
+  },
+  {
+    "text_id": 162,
+    "content": "传感器 加速度 在时间 2026-05-23 18:05:38 的读数，评估结果为：优秀",
+    "length": 44,
+    "category": "观测报告",
+    "confidence": 0.876
+  },
+  {
+    "text_id": 163,
+    "content": "样本编号 163 的实验结果，评估结果为：异常",
+    "length": 23,
+    "category": "测试结果",
+    "confidence": 0.794
+  },
+  {
+    "text_id": 164,
+    "content": "算法 KNN 在数据集 Synthetic 上的表现，评估结果为：异常",
+    "length": 35,
+    "category": "观测报告",
+    "confidence": 0.729
+  },
+  {
+    "text_id": 165,
+    "content": "样本编号 165 的实验结果，评估结果为：良好",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.798
+  },
+  {
+    "text_id": 166,
+    "content": "传感器 加速度 在时间 2026-05-23 18:05:38 的读数，评估结果为：较差",
+    "length": 44,
+    "category": "观测报告",
+    "confidence": 0.893
+  },
+  {
+    "text_id": 167,
+    "content": "实验批次 3 的观测值，评估结果为：优秀",
+    "length": 20,
+    "category": "实验记录",
+    "confidence": 0.825
+  },
+  {
+    "text_id": 168,
+    "content": "实验批次 3 的观测值，评估结果为：异常",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.796
+  },
+  {
+    "text_id": 169,
+    "content": "样本编号 169 的实验结果，评估结果为：一般",
+    "length": 23,
+    "category": "测试结果",
+    "confidence": 0.791
+  },
+  {
+    "text_id": 170,
+    "content": "样本编号 170 的实验结果，评估结果为：较差",
+    "length": 23,
+    "category": "实验记录",
+    "confidence": 0.946
+  },
+  {
+    "text_id": 171,
+    "content": "实验批次 9 的观测值，评估结果为：异常",
+    "length": 20,
+    "category": "实验记录",
+    "confidence": 0.934
+  },
+  {
+    "text_id": 172,
+    "content": "算法 XGBoost 在数据集 MNIST 上的表现，评估结果为：异常",
+    "length": 35,
+    "category": "测试结果",
+    "confidence": 0.941
+  },
+  {
+    "text_id": 173,
+    "content": "实验批次 1 的观测值，评估结果为：一般",
+    "length": 20,
+    "category": "观测报告",
+    "confidence": 0.702
+  },
+  {
+    "text_id": 174,
+    "content": "第 174 次测试数据记录，评估结果为：优秀",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.916
+  },
+  {
+    "text_id": 175,
+    "content": "第 175 次测试数据记录，评估结果为：良好",
+    "length": 22,
+    "category": "观测报告",
+    "confidence": 0.79
+  },
+  {
+    "text_id": 176,
+    "content": "实验批次 10 的观测值，评估结果为：良好",
+    "length": 21,
+    "category": "实验记录",
+    "confidence": 0.919
+  },
+  {
+    "text_id": 177,
+    "content": "样本编号 177 的实验结果，评估结果为：较差",
+    "length": 23,
+    "category": "测试结果",
+    "confidence": 0.828
+  },
+  {
+    "text_id": 178,
+    "content": "实验批次 4 的观测值，评估结果为：较差",
+    "length": 20,
+    "category": "实验记录",
+    "confidence": 0.782
+  },
+  {
+    "text_id": 179,
+    "content": "算法 NeuralNetwork 在数据集 MNIST 上的表现，评估结果为：良好",
+    "length": 41,
+    "category": "观测报告",
+    "confidence": 0.985
+  },
+  {
+    "text_id": 180,
+    "content": "样本编号 180 的实验结果，评估结果为：良好",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.784
+  },
+  {
+    "text_id": 181,
+    "content": "样本编号 181 的实验结果，评估结果为：良好",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.854
+  },
+  {
+    "text_id": 182,
+    "content": "第 182 次测试数据记录，评估结果为：较差",
+    "length": 22,
+    "category": "测试结果",
+    "confidence": 0.712
+  },
+  {
+    "text_id": 183,
+    "content": "样本编号 183 的实验结果，评估结果为：较差",
+    "length": 23,
+    "category": "测试结果",
+    "confidence": 0.817
+  },
+  {
+    "text_id": 184,
+    "content": "传感器 温度 在时间 2026-05-23 18:05:39 的读数，评估结果为：一般",
+    "length": 43,
+    "category": "实验记录",
+    "confidence": 0.932
+  },
+  {
+    "text_id": 185,
+    "content": "算法 SVM 在数据集 COCO 上的表现，评估结果为：优秀",
+    "length": 30,
+    "category": "实验记录",
+    "confidence": 0.826
+  },
+  {
+    "text_id": 186,
+    "content": "传感器 温度 在时间 2026-05-23 18:05:39 的读数，评估结果为：一般",
+    "length": 43,
+    "category": "实验记录",
+    "confidence": 0.797
+  },
+  {
+    "text_id": 187,
+    "content": "第 187 次测试数据记录，评估结果为：异常",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.963
+  },
+  {
+    "text_id": 188,
+    "content": "实验批次 6 的观测值，评估结果为：良好",
+    "length": 20,
+    "category": "观测报告",
+    "confidence": 0.757
+  },
+  {
+    "text_id": 189,
+    "content": "算法 RandomForest 在数据集 COCO 上的表现，评估结果为：较差",
+    "length": 39,
+    "category": "测试结果",
+    "confidence": 0.92
+  },
+  {
+    "text_id": 190,
+    "content": "传感器 陀螺仪 在时间 2026-05-23 18:05:39 的读数，评估结果为：良好",
+    "length": 44,
+    "category": "观测报告",
+    "confidence": 0.72
+  },
+  {
+    "text_id": 191,
+    "content": "传感器 湿度 在时间 2026-05-23 18:05:39 的读数，评估结果为：一般",
+    "length": 43,
+    "category": "测试结果",
+    "confidence": 0.722
+  },
+  {
+    "text_id": 192,
+    "content": "传感器 温度 在时间 2026-05-23 18:05:39 的读数，评估结果为：一般",
+    "length": 43,
+    "category": "实验记录",
+    "confidence": 0.887
+  },
+  {
+    "text_id": 193,
+    "content": "样本编号 193 的实验结果，评估结果为：较差",
+    "length": 23,
+    "category": "测试结果",
+    "confidence": 0.861
+  },
+  {
+    "text_id": 194,
+    "content": "样本编号 194 的实验结果，评估结果为：异常",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.845
+  },
+  {
+    "text_id": 195,
+    "content": "样本编号 195 的实验结果，评估结果为：异常",
+    "length": 23,
+    "category": "测试结果",
+    "confidence": 0.75
+  },
+  {
+    "text_id": 196,
+    "content": "第 196 次测试数据记录，评估结果为：异常",
+    "length": 22,
+    "category": "实验记录",
+    "confidence": 0.806
+  },
+  {
+    "text_id": 197,
+    "content": "实验批次 7 的观测值，评估结果为：优秀",
+    "length": 20,
+    "category": "测试结果",
+    "confidence": 0.888
+  },
+  {
+    "text_id": 198,
+    "content": "样本编号 198 的实验结果，评估结果为：一般",
+    "length": 23,
+    "category": "观测报告",
+    "confidence": 0.91
+  },
+  {
+    "text_id": 199,
+    "content": "算法 SVM 在数据集 Synthetic 上的表现，评估结果为：良好",
+    "length": 35,
+    "category": "观测报告",
+    "confidence": 0.79
+  },
+  {
+    "text_id": 200,
+    "content": "传感器 陀螺仪 在时间 2026-05-23 18:05:39 的读数，评估结果为：异常",
+    "length": 44,
+    "category": "观测报告",
+    "confidence": 0.887
+  }
+]

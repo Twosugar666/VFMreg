@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>训练数据集 | VFMReg Project</title>
+<link rel="stylesheet" href="../css/academic.css">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-inner">
+        <div class="nav-brand"><span class="icon">◈</span>VFMReg Project</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="datasets.html" class="active">数据集</a></li>
+            <li><a href="results.html">实验结果</a></li>
+            <li><a href="demo.html">在线演示</a></li>
+            <li><a href="../index.html#bibtex">引用</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-inner">
+        <div class="venue">Datasets · 训练数据准备</div>
+        <h1>训练数据集 <span class="accent">总览与分析</span></h1>
+        <p class="subtitle">8 个开源数据集 + 1 套自建合成数据 = 11.3 万 训练样本</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- 关键统计卡片 -->
+    <section class="section">
+        <h2><span class="num">1.</span>数据集统计</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">8 / 8</div>
+                <div class="metric-label">已下载数据集</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">9.9<span class="unit">GB</span></div>
+                <div class="metric-label">总磁盘占用</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">113K</div>
+                <div class="metric-label">总样本量</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">3</div>
+                <div class="metric-label">论文章节覆盖</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据集详情表 -->
+    <section class="section">
+        <h2><span class="num">2.</span>数据集清单</h2>
+        <table class="academic-table">
+            <caption>Table 2. 训练数据集清单。所有数据集均来自 HuggingFace 开源社区。</caption>
+            <thead>
+                <tr>
+                    <th>数据集</th>
+                    <th>用途</th>
+                    <th>论文章节</th>
+                    <th>样本数</th>
+                    <th>体积</th>
+                    <th>授权</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Human-Parsing</strong></td>
+                    <td>人体18类语义分割（含头部）</td>
+                    <td><span style="background:#ebf5fb;color:#2874a6;padding:2px 8px;border-radius:4px;">Ch.3</span></td>
+                    <td class="num">17,706</td>
+                    <td class="num">760 MB</td>
+                    <td>CC-BY-4.0</td>
+                </tr>
+                <tr>
+                    <td><strong>CelebA-Faces</strong></td>
+                    <td>高质量人脸（多样化头型）</td>
+                    <td><span style="background:#ebf5fb;color:#2874a6;padding:2px 8px;border-radius:4px;">Ch.3</span></td>
+                    <td class="num">67,533</td>
+                    <td class="num">441 MB</td>
+                    <td>非商用</td>
+                </tr>
+                <tr>
+                    <td><strong>CPPE-5</strong></td>
+                    <td>医疗防护装备</td>
+                    <td><span style="background:#ebf5fb;color:#2874a6;padding:2px 8px;border-radius:4px;">Ch.3</span></td>
+                    <td class="num">1,029</td>
+                    <td class="num">230 MB</td>
+                    <td>CC-BY-4.0</td>
+                </tr>
+                <tr class="highlight">
+                    <td><strong>Protective-Equipment</strong></td>
+                    <td>安全帽（最贴合脑磁头盔场景）</td>
+                    <td><span style="background:#ebf5fb;color:#2874a6;padding:2px 8px;border-radius:4px;">Ch.3</span></td>
+                    <td class="num">11,982</td>
+                    <td class="num">2.1 GB</td>
+                    <td>CC-BY-4.0</td>
+                </tr>
+                <tr>
+                    <td>AFHQv2</td>
+                    <td>动物面部（OOD 域外测试）</td>
+                    <td><span style="background:#ebf5fb;color:#2874a6;padding:2px 8px;border-radius:4px;">Ch.3</span></td>
+                    <td class="num">12,155</td>
+                    <td class="num">6.1 GB</td>
+                    <td>非商用</td>
+                </tr>
+                <tr>
+                    <td>Dog/Food Images</td>
+                    <td>背景域随机化</td>
+                    <td><span style="background:#fdebd0;color:#b9770e;padding:2px 8px;border-radius:4px;">Ch.5</span></td>
+                    <td class="num">3,000</td>
+                    <td class="num">272 MB</td>
+                    <td>CC-BY-4.0</td>
+                </tr>
+                <tr>
+                    <td>Wikiart-bg</td>
+                    <td>背景纹理多样性</td>
+                    <td><span style="background:#fdebd0;color:#b9770e;padding:2px 8px;border-radius:4px;">Ch.5</span></td>
+                    <td class="num">~80K</td>
+                    <td class="num">—</td>
+                    <td>CC-BY-4.0</td>
+                </tr>
+                <tr>
+                    <td>NeRF-Synthetic</td>
+                    <td>多视角配准基线</td>
+                    <td><span style="background:#fdebd0;color:#b9770e;padding:2px 8px;border-radius:4px;">Ch.4</span></td>
+                    <td class="num">8 场景</td>
+                    <td class="num">—</td>
+                    <td>MIT</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 体积/数量对比图 -->
+    <section class="section">
+        <h2><span class="num">3.</span>统计可视化</h2>
+
+        <div class="figure">
+            <img src="../../demo_reports/output/01_overview/dataset_size_chart.png" alt="数据集体积对比">
+            <p class="caption">
+                <span class="label">Figure 3.</span>
+                各训练数据集磁盘占用对比。AFHQv2 占用最大 (6.1GB)，
+                作为 OOD（域外）测试数据评估模型鲁棒性。
+            </p>
+        </div>
+
+        <div class="figure">
+            <img src="../../demo_reports/output/01_overview/dataset_count_chart.png" alt="样本量对比">
+            <p class="caption">
+                <span class="label">Figure 4.</span>
+                训练样本量对比（对数坐标）。CelebA 样本量最大 (67K)，
+                提供丰富的人脸多样性。
+            </p>
+        </div>
+
+        <div class="figure">
+            <img src="../../demo_reports/output/01_overview/dataset_pie.png" alt="章节占比">
+            <p class="caption">
+                <span class="label">Figure 5.</span>
+                按论文章节分组的数据占比。
+                第 3 章（头部分割）占用 90%+ 数据量，反映本文对鲁棒性的强调。
+            </p>
+        </div>
+    </section>
+
+    <!-- 样本可视化 -->
+    <section class="section">
+        <h2><span class="num">4.</span>数据样本展示</h2>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event, 'tab-combined')">综合对比</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-human')">Human-Parsing</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-celeb')">CelebA</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-protective')">Protective Eq.</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-cppe5')">CPPE-5</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-afhq')">AFHQv2</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-bg')">Backgrounds</button>
+        </div>
+
+        <div class="tab-content active" id="tab-combined">
+            <div class="figure">
+                <img src="../../demo_reports/output/02_samples/grid_combined.png" alt="跨数据集对比">
+                <p class="caption">
+                    <span class="label">Figure 6.</span>
+                    所有训练数据集样本综合对比。
+                </p>
+            </div>
+        </div>
+        <div class="tab-content" id="tab-human">
+            <div class="figure">
+                <img src="../../demo_reports/output/02_samples/grid_human_parsing.png" alt="Human Parsing">
+                <p class="caption">人体 18 类语义解析（含头部相关 5 类: Hat / Hair / Sunglasses / Scarf / Face），
+                可直接转换为头部二值 mask 用于 YOLOv8n-seg 训练。</p>
+            </div>
+        </div>
+        <div class="tab-content" id="tab-celeb">
+            <div class="figure">
+                <img src="../../demo_reports/output/02_samples/grid_celebA_faces.png" alt="CelebA">
+                <p class="caption">CelebA 高质量人脸图像，提供丰富的头型、肤色、性别、年龄多样性。</p>
+            </div>
+        </div>
+        <div class="tab-content" id="tab-protective">
+            <div class="figure">
+                <img src="../../demo_reports/output/02_samples/grid_protective_equipment.png" alt="Protective Equipment">
+                <p class="caption">
+                    <strong>★ 与脑磁头盔最相关数据集</strong>：工业场景下佩戴安全帽的人物图像，
+                    能有效模拟 OPM-MEG 头盔佩戴时的视觉外观。
+                </p>
+            </div>
+        </div>
+        <div class="tab-content" id="tab-cppe5">
+            <div class="figure">
+                <img src="../../demo_reports/output/02_samples/grid_cppe5.png" alt="CPPE-5">
+                <p class="caption">CPPE-5 医疗防护装备：白色防护服 + 护目镜 + 口罩 + 头帽，
+                与脑磁场景的视觉风格相似。</p>
+            </div>
+        </div>
+        <div class="tab-content" id="tab-afhq">
+            <div class="figure">
+                <img src="../../demo_reports/output/02_samples/grid_afhqv2.png" alt="AFHQv2">
+                <p class="caption">AFHQv2 动物面部数据集，作为 OOD（域外）测试数据，
+                评估模型在非人类头部上的鲁棒性下降。</p>
+            </div>
+        </div>
+        <div class="tab-content" id="tab-bg">
+            <div class="figure">
+                <img src="../../demo_reports/output/02_samples/grid_dog_food_bg.png" alt="Backgrounds">
+                <p class="caption">通用图像（食物/动物等），
+                用于第 5 章合成数据生成时的背景纹理替换，实现<strong>背景域随机化</strong>。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分布特征分析 -->
+    <section class="section">
+        <h2><span class="num">5.</span>数据分布特征</h2>
+        <p class="lead">
+            为评估数据多样性与"域随机化"策略覆盖度，对各数据集采样 200 张图像进行分布分析。
+        </p>
+
+        <div class="figure">
+            <img src="../../demo_reports/output/03_distribution/resolution_scatter.png" alt="分辨率分布">
+            <p class="caption">
+                <span class="label">Figure 7.</span>
+                各数据集图像分辨率分布散点图。Human-Parsing 与 CPPE-5 提供高分辨率训练数据，
+                CelebA 和 AFHQv2 为标准化 512² 输入。
+            </p>
+        </div>
+
+        <div class="figure">
+            <img src="../../demo_reports/output/03_distribution/brightness_hist.png" alt="亮度分布">
+            <p class="caption">
+                <span class="label">Figure 8.</span>
+                亮度分布直方图。覆盖范围 30-220 (0-255)，
+                可保证模型在低光、正常、强光照场景下的泛化能力。
+            </p>
+        </div>
+
+        <div class="figure">
+            <img src="../../demo_reports/output/03_distribution/rgb_histogram.png" alt="RGB 通道分布">
+            <p class="caption">
+                <span class="label">Figure 9.</span>
+                RGB 通道分布。各数据集颜色分布呈现互补性，
+                联合训练可避免颜色域过拟合。
+            </p>
+        </div>
+
+        <div class="figure">
+            <img src="../../demo_reports/output/03_distribution/mask_class_distribution.png" alt="类别分布">
+            <p class="caption">
+                <span class="label">Figure 10.</span>
+                Human-Parsing 数据集语义类别像素占比。
+                <strong>红色为头部相关类别（Hat/Hair/Face/Sunglasses/Scarf）</strong>，
+                占比 12%，可作为头部二分类的训练标签。
+            </p>
+        </div>
+    </section>
+
+    <!-- 数据使用说明 -->
+    <section class="section">
+        <h2><span class="num">6.</span>数据使用说明</h2>
+
+        <h3>6.1 各章节数据对应关系</h3>
+        <ul style="margin-left: 24px; line-height: 2;">
+            <li>
+                <strong>第 3 章 头部分割</strong>:
+                <code>Human-Parsing</code>(主) + <code>CelebA</code> + <code>CPPE-5</code> + <code>Protective-Equipment</code>
+                作为 YOLOv8n-seg 训练数据；<code>AFHQv2</code> 用于 OOD 测试。
+            </li>
+            <li>
+                <strong>第 4 章 NeRF 配准</strong>:
+                <code>NeRF-Synthetic</code> 经典 8 场景作为多视角数据格式参考。
+            </li>
+            <li>
+                <strong>第 5 章 VFMReg</strong>:
+                Blender 程序化生成 8 万张合成数据 + <code>Wikiart</code>/<code>Dog-Food</code> 背景域随机化。
+            </li>
+        </ul>
+
+        <h3>6.2 复现数据准备</h3>
+        <pre class="bibtex" style="white-space: pre-wrap;">
+# 1) 设置 HF 国内镜像
+export HF_ENDPOINT=https://hf-mirror.com
+
+# 2) 下载所有数据集 (一键脚本)
+python preprocess/convert_datasets.py --download_all
+
+# 3) 重新生成本报告
+python demo_reports/run_all.py
+</pre>
+
+        <p style="margin-top: 20px;">
+            <strong>⚠ 授权声明</strong>:
+            本研究仅作学术用途，所有数据集严格遵循原作者协议（CC-BY-4.0 / 非商用）。
+        </p>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-links">
+            <a href="../index.html">首页</a>
+            <a href="datasets.html">数据集</a>
+            <a href="results.html">实验结果</a>
+            <a href="demo.html">在线演示</a>
+        </div>
+        <p>© 2026 郭宣伯 · 北京航空航天大学 · 保留所有权利</p>
+    </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

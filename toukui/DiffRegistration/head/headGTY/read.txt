@@ -1,0 +1,9 @@
+下载示例头MRI文件
+https://bhpan.buaa.edu.cn/link/AA67B26C0A8560493B9DE43DAE56DACD3D
+文件名：headH.obj
+有效期限：2027-09-01 17:24
+
+下载完成后的数据结构如下
+head
+    headGTY
+        headH.obj

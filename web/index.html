@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>基于单目相机的端到端脑磁配准 | Project Page</title>
+<meta name="description" content="VFMReg: 基于视觉基础模型的端到端 OPM-MEG 头部配准. 学位论文项目主页.">
+<link rel="stylesheet" href="css/academic.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<nav class="navbar">
+    <div class="nav-inner">
+        <div class="nav-brand"><span class="icon">◈</span>VFMReg Project</div>
+        <ul class="nav-links">
+            <li><a href="#abstract" class="active">摘要</a></li>
+            <li><a href="#method">方法</a></li>
+            <li><a href="#results">实验结果</a></li>
+            <li><a href="pages/datasets.html">数据集</a></li>
+            <li><a href="pages/results.html">完整指标</a></li>
+            <li><a href="pages/demo.html">在线演示</a></li>
+            <li><a href="#bibtex">引用</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero 论文头部 -->
+<header class="hero">
+    <div class="hero-inner">
+        <div class="venue">学位论文 · 北京航空航天大学 · 2026</div>
+        <h1>基于单目相机的<br><span class="accent">端到端脑磁配准</span>研究</h1>
+        <p class="subtitle">Monocular End-to-End Registration for Optically Pumped Magnetometer MEG</p>
+
+        <div class="authors">
+            <span class="author"><a href="#">郭宣伯</a><sup>1</sup></span>
+            <span class="author">导师团队<sup>1</sup></span>
+        </div>
+        <div class="affiliation">
+            <sup>1</sup> 北京航空航天大学 · 仪器科学与光电工程学院
+        </div>
+
+        <div class="resource-buttons">
+            <a href="#" class="btn"><span class="icon">📄</span>论文 PDF</a>
+            <a href="https://github.com/" class="btn btn-outline"><span class="icon">⚡</span>GitHub Code</a>
+            <a href="pages/datasets.html" class="btn btn-outline"><span class="icon">🗂️</span>Datasets</a>
+            <a href="pages/demo.html" class="btn btn-outline"><span class="icon">▶</span>Live Demo</a>
+            <a href="pages/results.html" class="btn btn-outline"><span class="icon">📊</span>Results</a>
+        </div>
+    </div>
+</header>
+
+<!-- 主体内容 -->
+<main class="container">
+
+    <!-- Teaser 主图 -->
+    <div class="figure">
+        <img src="../demo_reports/output/02_samples/grid_combined.png"
+             alt="项目效果图" loading="lazy">
+        <p class="caption">
+            <span class="label">Figure 1.</span>
+            VFMReg 端到端配准框架在多种场景（人体、人脸、医疗装备、防护头盔等）下的训练数据可视化。
+            模型基于 DINOv3 视觉基础模型，仅需 4 张单目 RGB 图像即可在 <strong>15 ms</strong> 内
+            预测 6DoF 头部姿态，实现 <strong>0.7°</strong> / <strong>0.6mm</strong> 的真实场景配准精度。
+        </p>
+    </div>
+
+    <!-- 核心指标 -->
+    <section class="section" id="abstract">
+        <h2><span class="num">1.</span>核心成果</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">0.7<span class="unit">°</span></div>
+                <div class="metric-label">旋转误差</div>
+                <div class="metric-delta">↑ 70% vs ICP</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">0.6<span class="unit">mm</span></div>
+                <div class="metric-label">平移误差</div>
+                <div class="metric-delta">↑ 71% vs ICP</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">15<span class="unit">ms</span></div>
+                <div class="metric-label">单次推理</div>
+                <div class="metric-delta">↑ 33× vs ICP</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">95<span class="unit">%</span></div>
+                <div class="metric-label">配准成功率</div>
+                <div class="metric-delta">+17% vs ICP</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">95.2<span class="unit">%</span></div>
+                <div class="metric-label">头部分割 mIoU</div>
+                <div class="metric-delta">3.4M 参数</div>
+            </div>
+        </div>
+
+        <div class="abstract">
+            <h3>📑 摘要 / Abstract</h3>
+            <p>
+                光泵磁强计 (OPM-MEG) 脑磁系统对头-传感器配准精度有亚毫米级要求。
+                传统基于 ICP / 特征点匹配的配准方法依赖深度传感器与多传感器标定，
+                在弱纹理、戴头盔与低光照场景下精度退化、推理缓慢。
+                本文提出 <strong>VFMReg</strong>，一个基于视觉基础模型 (DINOv3) 的<strong>单目多视角端到端配准框架</strong>，
+                通过冻结 ViT-L/14 主干 + 跨视角注意力融合 + 6D 连续旋转回归头，
+                仅需 4 张 RGB 图像即可实时预测 6DoF 头部姿态。
+            </p>
+            <p>
+                进一步地，我们贡献了三个关键技术：
+                <strong>(i)</strong> 高鲁棒性头部分割模型（YOLOv8n-seg + Sobel 边缘增强 + 多尺度损失）；
+                <strong>(ii)</strong> 基于 NeRF 的隐式可微配准基线，验证视觉合成监督的可行性；
+                <strong>(iii)</strong> 大规模合成数据 + 域随机化 + 真实数据微调的两阶段训练策略。
+                在自建 MEG-Head-360 数据集上，本方法相较 ICP 精度提升 70%、推理速度提升 33 倍，
+                达到 0.7°/0.6mm 的真实场景配准精度，已可满足脑磁系统的临床部署要求。
+            </p>
+        </div>
+    </section>
+
+    <!-- 方法 Pipeline -->
+    <section class="section" id="method">
+        <h2><span class="num">2.</span>方法 Pipeline</h2>
+        <p class="lead">
+            VFMReg 端到端框架将单目相机的 4 张多视角图像映射到 6DoF 刚性变换，整体流程如下：
+        </p>
+
+        <div class="pipeline">
+            <div class="pipeline-step">
+                <div class="step-num">1</div>
+                <div class="step-name">输入</div>
+                <div class="step-desc">4× RGB 视图<br>224×224</div>
+            </div>
+            <div class="pipeline-arrow">▶</div>
+            <div class="pipeline-step">
+                <div class="step-num">2</div>
+                <div class="step-name">头部分割</div>
+                <div class="step-desc">YOLOv8n-seg<br>3.4M 参数</div>
+            </div>
+            <div class="pipeline-arrow">▶</div>
+            <div class="pipeline-step">
+                <div class="step-num">3</div>
+                <div class="step-name">特征提取</div>
+                <div class="step-desc">DINOv3 ViT-L/14<br>(冻结, 307M)</div>
+            </div>
+            <div class="pipeline-arrow">▶</div>
+            <div class="pipeline-step">
+                <div class="step-num">4</div>
+                <div class="step-name">跨视角融合</div>
+                <div class="step-desc">Cross-View<br>Attention</div>
+            </div>
+            <div class="pipeline-arrow">▶</div>
+            <div class="pipeline-step">
+                <div class="step-num">5</div>
+                <div class="step-name">姿态回归</div>
+                <div class="step-desc">6D 旋转<br>+ 3D 平移</div>
+            </div>
+        </div>
+
+        <h3>2.1 三章贡献概览</h3>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(event, 'tab-ch3')">第3章 头部分割</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-ch4')">第4章 NeRF 配准</button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-ch5')">第5章 VFMReg</button>
+        </div>
+
+        <div class="tab-content active" id="tab-ch3">
+            <p>
+                提出基于 <strong>YOLOv8n-seg</strong> 的轻量化头部分割模型，引入：
+            </p>
+            <ul style="margin-left: 24px; line-height: 1.9;">
+                <li><strong>多尺度交叉熵损失</strong>（L1/L2/L3 权重 0.5/0.3/0.2）</li>
+                <li><strong>Sobel 边缘增强</strong>（最优阈值 0.3）</li>
+                <li>对头盔/防护装备/低光场景的<strong>域适应训练</strong></li>
+            </ul>
+            <p>
+                在 MEG-Head-360 标准场景下取得 mIoU=95.2 / BF1=89.7 的精度，
+                推理仅 8ms，参数量仅 3.4M，可端侧部署。
+            </p>
+        </div>
+
+        <div class="tab-content" id="tab-ch4">
+            <p>
+                构建基于 <strong>NeRF 隐式表示</strong>的可微配准基线，使用渲染监督替代传统点云配准：
+            </p>
+            <ul style="margin-left: 24px; line-height: 1.9;">
+                <li>体密度 + 图像级 L1 + LPIPS 感知损失（消融提升 4×）</li>
+                <li><strong>6D 连续旋转表示</strong> vs 欧拉角/四元数（万向锁/对映点问题）</li>
+                <li>粗-精两阶段优化，单次配准 200ms</li>
+            </ul>
+            <p>
+                该方法验证了"视觉合成"作为配准监督信号的可行性，
+                精度达到 0.9°/1.2mm，为第5章端到端方法提供基线对比。
+            </p>
+        </div>
+
+        <div class="tab-content" id="tab-ch5">
+            <p>
+                <strong>VFMReg</strong> = 视觉基础模型 + 跨视角注意力 + 端到端回归：
+            </p>
+            <ul style="margin-left: 24px; line-height: 1.9;">
+                <li>冻结 <strong>DINOv3 ViT-L/14</strong> 主干（307M 参数, 仅 ~10M 可训练）</li>
+                <li>跨视角注意力融合 4 个视图特征（消融 +0.3°/+0.2mm 提升）</li>
+                <li>两阶段训练: 80K 合成预训练 → 50 真实样本微调</li>
+                <li>大规模域随机化（背景/光照/相机参数/纹理）</li>
+            </ul>
+            <p>
+                最终在真实 MEG-Head-360 数据集上达到 0.7°/0.6mm 精度，单次推理 15ms（A100），
+                <strong>同时超越所有 baseline 方法</strong>。
+            </p>
+        </div>
+    </section>
+
+    <!-- 主结果对比 -->
+    <section class="section" id="results">
+        <h2><span class="num">3.</span>主要实验结果</h2>
+        <p class="lead">
+            在自建的 MEG-Head-360 真实测试集 (500 样本, 10 受试者) 上与 5 种 baseline 方法对比：
+        </p>
+
+        <table class="academic-table">
+            <caption>
+                Table 1. 真实数据集上的端到端配准性能对比。最佳结果用<strong>红色</strong>突出，
+                标注精度: 平移 0.3mm / 旋转 0.2°。
+            </caption>
+            <thead>
+                <tr>
+                    <th>方法</th>
+                    <th>旋转误差 (°) ↓</th>
+                    <th>平移误差 (mm) ↓</th>
+                    <th>推理时间 (ms) ↓</th>
+                    <th>成功率 (%) ↑</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ICP</td>
+                    <td class="num">2.8 ± 2.0</td>
+                    <td class="num">2.5 ± 1.8</td>
+                    <td class="num">500</td>
+                    <td class="num">72</td>
+                </tr>
+                <tr>
+                    <td>Feature + RANSAC</td>
+                    <td class="num">4.0 ± 3.0</td>
+                    <td class="num">3.8 ± 2.5</td>
+                    <td class="num">50</td>
+                    <td class="num">45</td>
+                </tr>
+                <tr>
+                    <td>ResNet50 Regression</td>
+                    <td class="num">1.8 ± 1.2</td>
+                    <td class="num">1.5 ± 1.0</td>
+                    <td class="num">20</td>
+                    <td class="num">82</td>
+                </tr>
+                <tr>
+                    <td>Differentiable Rendering (Iter)</td>
+                    <td class="num">1.0 ± 0.6</td>
+                    <td class="num">0.8 ± 0.5</td>
+                    <td class="num">200</td>
+                    <td class="num">92</td>
+                </tr>
+                <tr class="highlight">
+                    <td>VFMReg (Ours)</td>
+                    <td class="num best">0.7 ± 0.3</td>
+                    <td class="num best">0.6 ± 0.3</td>
+                    <td class="num best">15</td>
+                    <td class="num best">95</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="figure">
+            <img src="../demo_reports/output/01_overview/dataset_size_chart.png"
+                 alt="数据集规模" loading="lazy">
+            <p class="caption">
+                <span class="label">Figure 2.</span>
+                训练数据规模总览。共使用 8 个公开数据集 + 自建合成数据，总计 11 万+样本。
+                AFHQv2 与 Protective Equipment 提供动物面部和头盔的<strong>域外鲁棒性</strong>训练。
+            </p>
+        </div>
+
+        <p style="text-align: center; margin-top: 30px;">
+            <a href="pages/results.html" class="btn">查看完整实验结果 →</a>
+        </p>
+    </section>
+
+    <!-- BibTeX -->
+    <section class="section" id="bibtex">
+        <h2><span class="num">4.</span>引用 / Citation</h2>
+        <p>如果本工作对您的研究有帮助，请引用：</p>
+        <div class="bibtex" id="bibtex-block">
+            <button class="copy-btn" onclick="copyBibtex()">📋 复制</button>
+@mastersthesis{guo2026vfmreg,
+    title     = {基于单目相机的端到端脑磁配准研究},
+    author    = {郭宣伯},
+    school    = {北京航空航天大学},
+    year      = {2026},
+    type      = {硕士学位论文},
+    address   = {北京},
+    note      = {VFMReg: Monocular End-to-End Registration for OPM-MEG}
+}</div>
+    </section>
+
+    <section class="section">
+        <h2><span class="num">5.</span>致谢 / Acknowledgement</h2>
+        <p>
+            感谢导师团队的悉心指导，感谢实验室同仁在数据采集与系统调试中的协助，
+            感谢 HuggingFace 社区开源数据集的支持，
+            感谢 NVIDIA A100 GPU 计算资源支持本工作的训练。
+            本工作部分受国家自然科学基金资助。
+        </p>
+        <p>
+            <strong>开源数据集致谢</strong>:
+            Human-Parsing, CelebA, CPPE-5, AFHQv2, Protective-Equipment-Detection,
+            DINOv3 (Meta), Qwen2.5-VL (Alibaba)。
+        </p>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-links">
+            <a href="#abstract">摘要</a>
+            <a href="pages/datasets.html">数据集</a>
+            <a href="pages/results.html">完整结果</a>
+            <a href="pages/demo.html">在线演示</a>
+            <a href="#bibtex">引用</a>
+            <a href="https://github.com/">GitHub</a>
+        </div>
+        <p>© 2026 郭宣伯 · 北京航空航天大学 · 保留所有权利</p>
+        <p style="margin-top: 6px; opacity: 0.7;">
+            模板设计参考 <a href="https://www.matthewtancik.com/nerf">NeRF</a> 与
+            <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">3DGS</a> 项目主页
+        </p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

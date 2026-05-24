@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>训练数据集总结报告 - 单目脑磁配准</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 100%);
+    color: #2c3e50;
+    line-height: 1.6;
+}
+.header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 50px 40px 40px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+.header h1 { font-size: 2.4em; margin-bottom: 8px; }
+.header .subtitle { font-size: 1.1em; opacity: 0.9; margin-bottom: 20px; }
+.header .meta { font-size: 0.95em; opacity: 0.85; }
+.container { max-width: 1400px; margin: 0 auto; padding: 30px; }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin: -50px 30px 30px;
+    position: relative;
+    z-index: 10;
+}
+.stat-card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #3498db;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.stat-card .label { font-size: 0.88em; color: #7f8c8d; margin-bottom: 6px; }
+.stat-card .value { font-size: 1.9em; font-weight: 700; color: #2c3e50; }
+.stat-card.success { border-left-color: #27ae60; }
+.stat-card.warning { border-left-color: #e67e22; }
+.stat-card.info { border-left-color: #9b59b6; }
+
+.section {
+    background: white;
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+.section h2 {
+    font-size: 1.6em;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #3498db;
+    color: #1e3c72;
+}
+.section .desc { color: #7f8c8d; margin-bottom: 18px; font-size: 0.95em; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 0.92em;
+}
+th, td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+}
+th {
+    background: linear-gradient(135deg, #ecf0f1, #d5dbdb);
+    font-weight: 600;
+    color: #2c3e50;
+}
+tr:hover { background: #f8f9fa; }
+
+.badge-ok { background: #d5f5e3; color: #1e8449; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; }
+.badge-pending { background: #fdebd0; color: #b9770e; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; }
+.chapter-tag { background: #ebf5fb; color: #2874a6; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; font-weight: 600; }
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+}
+.img-card {
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+}
+.img-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.img-card h3 { font-size: 1.05em; margin-bottom: 6px; color: #1e3c72; }
+.img-card p.desc { font-size: 0.85em; color: #7f8c8d; margin-bottom: 10px; }
+.img-card img {
+    width: 100%;
+    border-radius: 6px;
+    cursor: zoom-in;
+    border: 1px solid #ecf0f1;
+}
+.img-card.empty { background: #f9f9f9; color: #95a5a6; text-align: center; padding: 40px; }
+
+.footer {
+    text-align: center;
+    color: #7f8c8d;
+    padding: 30px;
+    font-size: 0.9em;
+}
+
+/* 灯箱效果 */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.92);
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+.lightbox.active { display: flex; }
+.lightbox img { max-width: 95%; max-height: 95%; border-radius: 6px; }
+
+@media (max-width: 768px) {
+    .header h1 { font-size: 1.6em; }
+    .stats-grid { margin: -30px 10px 20px; }
+    .container { padding: 15px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📑 训练数据集总结报告</h1>
+    <p class="subtitle">基于单目相机的端到端脑磁配准研究 — 训练数据准备情况</p>
+    <p class="meta">📅 生成时间: 2026-05-19 15:28:54 &nbsp;&nbsp;|&nbsp;&nbsp; 🏫 学位论文演示用</p>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card success">
+        <div class="label">已下载数据集</div>
+        <div class="value">6 / 8</div>
+    </div>
+    <div class="stat-card">
+        <div class="label">总磁盘占用</div>
+        <div class="value">9.9 GB</div>
+    </div>
+    <div class="stat-card info">
+        <div class="label">总样本量</div>
+        <div class="value">113,405</div>
+    </div>
+    <div class="stat-card warning">
+        <div class="label">覆盖论文章节</div>
+        <div class="value">Ch.3 / 4 / 5</div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="section">
+        <h2>📋 1. 数据集清单</h2>
+        <p class="desc">所有训练数据集均来自 HuggingFace 开源社区，使用 hf-mirror 加速下载。
+        受论文实验数据隐私性限制，使用以下公开数据集模拟和补充论文中提到的 MEG-Head-360 真实数据集。</p>
+        <table>
+            <thead>
+            <tr>
+                <th>数据集</th>
+                <th>用途分类</th>
+                <th>体积</th>
+                <th>样本数</th>
+                <th>状态</th>
+            </tr>
+            </thead>
+            <tbody>
+        <tr>
+            <td>human_parsing</td>
+            <td><span class="chapter-tag">Ch.3</span> 头部分割（第3章）</td>
+            <td>759.7 MB</td>
+            <td>17,706</td>
+            <td><span class="badge-ok">✅ 已下载</span></td>
+        </tr>
+        <tr>
+            <td>celebA_faces</td>
+            <td><span class="chapter-tag">Ch.3</span> 头部分割（第3章）</td>
+            <td>441.0 MB</td>
+            <td>67,533</td>
+            <td><span class="badge-ok">✅ 已下载</span></td>
+        </tr>
+        <tr>
+            <td>cppe5</td>
+            <td><span class="chapter-tag">Ch.3</span> 头部分割（第3章）</td>
+            <td>230.0 MB</td>
+            <td>1,029</td>
+            <td><span class="badge-ok">✅ 已下载</span></td>
+        </tr>
+        <tr>
+            <td>protective_equipment</td>
+            <td><span class="chapter-tag">Ch.3</span> 头盔分割（第3章）</td>
+            <td>2.1 GB</td>
+            <td>11,982</td>
+            <td><span class="badge-ok">✅ 已下载</span></td>
+        </tr>
+        <tr>
+            <td>afhqv2</td>
+            <td><span class="chapter-tag">Ch.3</span> 域外测试（第3章）</td>
+            <td>6.1 GB</td>
+            <td>12,155</td>
+            <td><span class="badge-ok">✅ 已下载</span></td>
+        </tr>
+        <tr>
+            <td>dog_food_bg</td>
+            <td><span class="chapter-tag">Ch.5</span> 背景域随机化（第5章）</td>
+            <td>271.9 MB</td>
+            <td>3,000</td>
+            <td><span class="badge-ok">✅ 已下载</span></td>
+        </tr>
+        <tr>
+            <td>wikiart_bg</td>
+            <td><span class="chapter-tag">Ch.5</span> 背景域随机化（第5章）</td>
+            <td>0.0 B</td>
+            <td>0</td>
+            <td><span class="badge-pending">⏳ 未下载</span></td>
+        </tr>
+        <tr>
+            <td>aloha_multiview</td>
+            <td><span class="chapter-tag">Ch.4</span> NeRF多视角（第4章）</td>
+            <td>0.0 B</td>
+            <td>0</td>
+            <td><span class="badge-pending">⏳ 未下载</span></td>
+        </tr></tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>📊 2. 数据集统计可视化</h2>
+        <p class="desc">从体积、样本量、章节分布三个维度对比各数据集情况。</p>
+        <div class="gallery">
+    <div class="img-card">
+        <h3>📊 数据集体积对比</h3>
+        <p class="desc">展示各数据集占用磁盘空间</p>
+        <img src="assets/dataset_size_chart.png" alt="📊 数据集体积对比" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div>
+    <div class="img-card">
+        <h3>📈 数据集样本量对比</h3>
+        <p class="desc">对数坐标显示，便于观察数量级差异</p>
+        <img src="assets/dataset_count_chart.png" alt="📈 数据集样本量对比" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div>
+    <div class="img-card">
+        <h3>🥧 论文章节占比</h3>
+        <p class="desc">按论文章节(Ch.3/4/5)分组的数据占比</p>
+        <img src="assets/dataset_pie.png" alt="🥧 论文章节占比" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div></div>
+    </div>
+
+    <div class="section">
+        <h2>🖼️ 3. 数据样本示例</h2>
+        <p class="desc">从每个数据集中随机抽取若干样本展示，含原图与语义 mask（如有）。</p>
+        <div class="gallery">
+    <div class="img-card">
+        <h3>👤 Human Parsing 样本（含语义mask）</h3>
+        <p class="desc">人体18类语义解析，用于生成头部分割训练标签</p>
+        <img src="assets/grid_human_parsing.png" alt="👤 Human Parsing 样本（含语义mask）" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div>
+    <div class="img-card">
+        <h3>😀 CelebA 人脸样本</h3>
+        <p class="desc">高质量人脸图像，多样化头型与肤色</p>
+        <img src="assets/grid_celebA_faces.png" alt="😀 CelebA 人脸样本" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div>
+    <div class="img-card">
+        <h3>😷 CPPE-5 医疗防护装备</h3>
+        <p class="desc">与脑磁头盔同分布的医疗装备图像</p>
+        <img src="assets/grid_cppe5.png" alt="😷 CPPE-5 医疗防护装备" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div>
+    <div class="img-card">
+        <h3>⛑️ Protective Equipment 安全帽（最贴合脑磁头盔场景）</h3>
+        <p class="desc">佩戴安全帽人物图像，与论文 OPM-MEG 场景结构最相似</p>
+        <img src="assets/grid_protective_equipment.png" alt="⛑️ Protective Equipment 安全帽（最贴合脑磁头盔场景）" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div>
+    <div class="img-card">
+        <h3>🐕 AFHQv2 动物面部</h3>
+        <p class="desc">用于测试模型的域外（OOD）泛化能力</p>
+        <img src="assets/grid_afhqv2.png" alt="🐕 AFHQv2 动物面部" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div>
+    <div class="img-card">
+        <h3>🖼️ 通用图像（背景域随机化）</h3>
+        <p class="desc">用作合成数据的背景纹理替换</p>
+        <img src="assets/grid_dog_food_bg.png" alt="🖼️ 通用图像（背景域随机化）" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div>
+    <div class="img-card">
+        <h3>🎨 跨数据集综合对比</h3>
+        <p class="desc">所有数据集样本对比</p>
+        <img src="assets/grid_combined.png" alt="🎨 跨数据集综合对比" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div></div>
+    </div>
+
+    <div class="section">
+        <h2>📈 4. 数据分布特征分析</h2>
+        <p class="desc">对图像分辨率、亮度、颜色通道等关键统计特征进行分析，
+        用于评估数据集的多样性与论文中"域随机化"策略的覆盖度。</p>
+        <div class="gallery">
+    <div class="img-card">
+        <h3>📐 图像分辨率分布</h3>
+        <p class="desc">宽×高散点图，反映各数据集图像规格</p>
+        <img src="assets/resolution_scatter.png" alt="📐 图像分辨率分布" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div>
+    <div class="img-card">
+        <h3>💡 亮度分布直方图</h3>
+        <p class="desc">用于评估域随机化的亮度覆盖范围</p>
+        <img src="assets/brightness_hist.png" alt="💡 亮度分布直方图" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div>
+    <div class="img-card">
+        <h3>🎨 RGB 通道分布</h3>
+        <p class="desc">各数据集颜色通道直方图对比</p>
+        <img src="assets/rgb_histogram.png" alt="🎨 RGB 通道分布" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div>
+    <div class="img-card">
+        <h3>🏷️ 语义类别像素占比</h3>
+        <p class="desc">红色为头部相关类别（Hat/Hair/Face/Sunglasses/Scarf）</p>
+        <img src="assets/mask_class_distribution.png" alt="🏷️ 语义类别像素占比" loading="lazy" onclick="openLightbox(this.src)"/>
+    </div></div>
+        <h3 style="margin-top:30px;">数值统计明细</h3><table><thead><tr><th>数据集</th><th>采样数</th><th>宽度范围 (px)</th><th>高度范围 (px)</th><th>亮度 (mean +/- std)</th></tr></thead><tbody><tr><td>human_parsing</td><td>200</td><td>86 ~ 800<br><small>mean: 394</small></td><td>366 ~ 1200<br><small>mean: 616</small></td><td>145.4 +/- 34.3</td></tr><tr><td>celebA_faces</td><td>200</td><td>178 ~ 178<br><small>mean: 178</small></td><td>218 ~ 218<br><small>mean: 218</small></td><td>111.2 +/- 36.0</td></tr><tr><td>cppe5</td><td>200</td><td>72 ~ 6144<br><small>mean: 1068</small></td><td>133 ~ 6067<br><small>mean: 776</small></td><td>140.7 +/- 50.9</td></tr><tr><td>afhqv2</td><td>200</td><td>512 ~ 512<br><small>mean: 512</small></td><td>512 ~ 512<br><small>mean: 512</small></td><td>115.2 +/- 28.1</td></tr><tr><td>dog_food_bg</td><td>200</td><td>82 ~ 2592<br><small>mean: 542</small></td><td>137 ~ 1728<br><small>mean: 473</small></td><td>144.7 +/- 35.3</td></tr></tbody></table>
+    </div>
+
+    <div class="section">
+        <h2>📝 5. 数据使用说明</h2>
+        <p class="desc">数据集与论文章节的对应关系如下：</p>
+        <ul style="margin-left: 20px; line-height: 2;">
+            <li><strong>第3章 - 头部分割</strong>:
+                使用 <code>human_parsing</code>(主) + <code>celebA_faces</code> + <code>cppe5</code>
+                + <code>protective_equipment</code> 作为 YOLOv8n-seg 训练数据，
+                <code>afhqv2</code> 用于域外测试鲁棒性。</li>
+            <li><strong>第4章 - NeRF 配准</strong>:
+                使用 <code>aloha_multiview</code> 作为多视角数据格式参考；
+                经典 NeRF-Synthetic 8场景需手动从原 Google Drive 下载。</li>
+            <li><strong>第5章 - VFMReg 视觉基础模型配准</strong>:
+                合成数据通过 Blender 程序化生成（脚本见 [augmentation.py](../preprocess/augmentation.py)）；
+                <code>dog_food_bg</code> 与 <code>wikiart_bg</code> 提供背景域随机化。</li>
+        </ul>
+        <p class="desc" style="margin-top: 15px;">
+            ⚠️ <strong>授权声明</strong>: 数据集仅用于学术研究目的（论文复现演示），
+            CelebA 与 AFHQv2 限非商用，CPPE-5 与 Protective Equipment 为 CC-BY-4.0 协议。
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>🚀 6. 复现步骤</h2>
+        <pre style="background: #2c3e50; color: #ecf0f1; padding: 18px; border-radius: 8px; overflow-x: auto; font-size: 0.9em;">
+# 1) 下载数据集 (使用国内镜像加速)
+export HF_ENDPOINT=https://hf-mirror.com
+python -c "from huggingface_hub import snapshot_download; \
+    snapshot_download('mattmdjaga/human_parsing_dataset', repo_type='dataset', \
+                      local_dir='./data/head_seg/human_parsing')"
+
+# 2) 转换为 YOLO 训练格式
+python -m preprocess.convert_datasets --dataset human_parsing
+
+# 3) 重新生成本报告
+python demo_reports/01_dataset_overview.py
+python demo_reports/02_sample_visualization.py
+python demo_reports/03_data_distribution.py
+python demo_reports/04_html_report.py</pre>
+    </div>
+</div>
+
+<div class="footer">
+    <p>💡 论文：基于单目相机的端到端脑磁配准研究</p>
+    <p>© 学位论文配套代码 · 训练数据集说明文档 · 生成于 2026-05-19 15:28:54</p>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+}
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
+});
+</script>
+
+</body>
+</html>

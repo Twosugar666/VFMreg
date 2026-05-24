@@ -1,0 +1,46 @@
+{
+  "title": "基于单目相机的端到端脑磁配准系统 - 综合评估报告",
+  "author": "郭宣伯",
+  "institution": "北京航空航天大学",
+  "timestamp": "2026-05-18 21:17:50",
+  "summary": {
+    "description": "系统最终性能总结",
+    "final_performance": {
+      "real_test_set": {
+        "rotation_error_deg": 0.7,
+        "translation_error_mm": 0.6,
+        "inference_time_ms": 15,
+        "end_to_end_latency_ms": 20.5,
+        "success_rate_pct": 95
+      },
+      "vs_ICP_improvement": {
+        "precision_improvement_pct": 70,
+        "speed_improvement_x": 33
+      }
+    }
+  },
+  "system_specs": {
+    "input": "4张单目RGB相机序列视图 (224×224)",
+    "output": "6DoF刚性变换 (3×3旋转矩阵 + 3D平移向量)",
+    "backbone": "DINOv3 ViT-L/14 (冻结, 307M参数)",
+    "trainable_params": "~10M (注意力层 + 回归头)",
+    "segmentation": "YOLOv8n-seg (3.4M参数)"
+  },
+  "comparison_with_baselines": {
+    "ICP": {
+      "rot": "2.3°→0.7°",
+      "trans": "2.1mm→0.6mm",
+      "speed": "500ms→15ms"
+    },
+    "Feature+RANSAC": {
+      "rot": "3.5°→0.7°",
+      "trans": "3.2mm→0.6mm",
+      "speed": "50ms→15ms"
+    },
+    "NeRF_iterative_ours_ch4": {
+      "rot": "0.9°→0.7°",
+      "trans": "1.2mm→0.6mm",
+      "speed": "200ms→15ms"
+    }
+  }
+}

@@ -1,0 +1,111 @@
+## ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+## ===== 虚拟环境 =====
+.venv/
+venv/
+env/
+ENV/
+.env
+
+## ===== IDE / 编辑器 =====
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+## ===== 操作系统 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## ===== Jupyter =====
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+## ===== 大数据集（不应推送到 GitHub） =====
+## 默认忽略整个 data/ 目录（约 9.9 GB），仅例外保留以下两项
+data/*
+!data/README.md
+!data/plot/
+data/plot/__pycache__/
+
+## ===== 模型权重 =====
+models/weights/
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.h5
+*.safetensors
+*.onnx
+
+## ===== 大型二进制 / 媒体文件 =====
+*.npz
+*.npy
+*.nii
+*.nii.gz
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+*.mp4
+*.avi
+*.mov
+*.mkv
+## 例外：toukui/DiffRegistration/videodata 下的演示视频需要保留（小且对答辩有用）
+!toukui/DiffRegistration/videodata/**/*.avi
+## MEG / 脑磁图 / 信号数据（单文件常 >100MB，超 GitHub 上限）
+*.fif
+*.edf
+*.bdf
+*.set
+*.eeg
+*.vhdr
+*.vmrk
+*.cnt
+*.mat
+*.parquet
+*.feather
+*.arrow
+## MEG 仿真数据目录（只保留代码，不保留原始数据）
+meg/data_sim/
+meg/data_sim_backup_3of4_optimal/
+meg/result/
+## meg/tz_ty_zb：含真实受试者姓名 + 原始 .fif/.mat（隐私 + 体积）
+meg/tz_ty_zb/
+
+## ===== 日志与运行时输出 =====
+*.log
+logs/
+runs/
+wandb/
+tensorboard/
+mlruns/
+
+## ===== 项目临时文件 =====
+_size.txt
+_addlog.txt
+_status.txt
+_stat.txt
+_count.txt
+_n.txt
+_*.txt
+_done
+_pid
+*.tmp
+*.temp
+.cache/

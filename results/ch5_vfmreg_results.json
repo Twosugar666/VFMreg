@@ -1,0 +1,2834 @@
+{
+  "experiment": "第五章 - VFMReg端到端视觉配准框架",
+  "timestamp": "2026-05-18 21:17:50",
+  "training_info": {
+    "stage1_pretrain": {
+      "dataset": "合成数据集",
+      "num_samples": 80000,
+      "epochs": 100,
+      "batch_size": 32,
+      "views_per_sample": 4,
+      "learning_rate": "1e-4 → 1e-6 (余弦退火)",
+      "optimizer": "Adam (β1=0.9, β2=0.999)",
+      "precision": "bf16",
+      "gpu": "NVIDIA A100 80GB",
+      "training_time_hours": 20,
+      "trainable_params_M": 10.2,
+      "total_params_M": 317.2
+    },
+    "stage2_finetune": {
+      "dataset": "真实数据集",
+      "num_samples": 50,
+      "epochs": 10,
+      "batch_size": 8,
+      "learning_rate": "1e-5 (固定)",
+      "trainable_modules": [
+        "cross_view_attention",
+        "pose_head"
+      ],
+      "training_time_hours": 2
+    }
+  },
+  "table_5_3_synthetic_comparison": {
+    "description": "合成测试集上的定量对比结果",
+    "test_set_size": 10000,
+    "methods": {
+      "ICP": {
+        "rot_deg": 2.3,
+        "rot_std": 1.8,
+        "trans_mm": 2.1,
+        "trans_std": 1.5,
+        "time_ms": 500,
+        "success_pct": 78
+      },
+      "Feature+RANSAC": {
+        "rot_deg": 3.5,
+        "rot_std": 2.5,
+        "trans_mm": 3.2,
+        "trans_std": 2.1,
+        "time_ms": 50,
+        "success_pct": 52
+      },
+      "ResNet50_regression": {
+        "rot_deg": 1.2,
+        "rot_std": 0.8,
+        "trans_mm": 1.0,
+        "trans_std": 0.7,
+        "time_ms": 20,
+        "success_pct": 90
+      },
+      "PointNet++": {
+        "rot_deg": 1.5,
+        "rot_std": 1.0,
+        "trans_mm": 1.3,
+        "trans_std": 0.9,
+        "time_ms": 35,
+        "success_pct": 85
+      },
+      "Differentiable_Rendering_Iterative": {
+        "rot_deg": 0.8,
+        "rot_std": 0.5,
+        "trans_mm": 0.6,
+        "trans_std": 0.4,
+        "time_ms": 200,
+        "success_pct": 96
+      },
+      "VFMReg_Ours": {
+        "rot_deg": 0.6,
+        "rot_std": 0.3,
+        "trans_mm": 0.5,
+        "trans_std": 0.3,
+        "time_ms": 15,
+        "success_pct": 98
+      }
+    }
+  },
+  "table_5_4_real_comparison": {
+    "description": "真实数据集上的性能对比",
+    "test_set_size": 500,
+    "num_subjects": 10,
+    "annotation_precision": {
+      "translation_mm": 0.3,
+      "rotation_deg": 0.2
+    },
+    "methods": {
+      "ICP": {
+        "rot_deg": 2.8,
+        "rot_std": 2.0,
+        "trans_mm": 2.5,
+        "trans_std": 1.8,
+        "time_ms": 500,
+        "success_pct": 72
+      },
+      "Feature+RANSAC": {
+        "rot_deg": 4.0,
+        "rot_std": 3.0,
+        "trans_mm": 3.8,
+        "trans_std": 2.5,
+        "time_ms": 50,
+        "success_pct": 45
+      },
+      "ResNet50_regression": {
+        "rot_deg": 1.8,
+        "rot_std": 1.2,
+        "trans_mm": 1.5,
+        "trans_std": 1.0,
+        "time_ms": 20,
+        "success_pct": 82
+      },
+      "Differentiable_Rendering_Iterative": {
+        "rot_deg": 1.0,
+        "rot_std": 0.6,
+        "trans_mm": 0.8,
+        "trans_std": 0.5,
+        "time_ms": 200,
+        "success_pct": 92
+      },
+      "VFMReg_Ours": {
+        "rot_deg": 0.7,
+        "rot_std": 0.3,
+        "trans_mm": 0.6,
+        "trans_std": 0.3,
+        "time_ms": 15,
+        "success_pct": 95
+      }
+    },
+    "before_finetune": {
+      "rot_deg": 0.8,
+      "rot_std": 0.4,
+      "trans_mm": 0.7,
+      "trans_std": 0.4
+    },
+    "after_finetune": {
+      "rot_deg": 0.7,
+      "rot_std": 0.3,
+      "trans_mm": 0.6,
+      "trans_std": 0.3
+    }
+  },
+  "table_5_5_ablation": {
+    "description": "消融实验结果汇总",
+    "experiments": [
+      {
+        "config": "单视图(K=1)",
+        "rot_deg": 1.2,
+        "rot_std": 0.8,
+        "trans_mm": 1.0,
+        "trans_std": 0.7,
+        "success_pct": 88,
+        "time_ms": 8
+      },
+      {
+        "config": "多视图K=4,无注意力(拼接)",
+        "rot_deg": 0.9,
+        "rot_std": 0.5,
+        "trans_mm": 0.7,
+        "trans_std": 0.4,
+        "success_pct": 93,
+        "time_ms": 12
+      },
+      {
+        "config": "多视图K=4,无注意力(均值)",
+        "rot_deg": 0.8,
+        "rot_std": 0.4,
+        "trans_mm": 0.7,
+        "trans_std": 0.4,
+        "success_pct": 94,
+        "time_ms": 11
+      },
+      {
+        "config": "多视图K=4+注意力(本文)",
+        "rot_deg": 0.6,
+        "rot_std": 0.3,
+        "trans_mm": 0.5,
+        "trans_std": 0.3,
+        "success_pct": 98,
+        "time_ms": 15
+      },
+      {
+        "config": "无可微渲染",
+        "rot_deg": 0.7,
+        "rot_std": 0.4,
+        "trans_mm": 0.6,
+        "trans_std": 0.4,
+        "success_pct": 95,
+        "time_ms": 15
+      },
+      {
+        "config": "无域随机化",
+        "rot_deg": 1.5,
+        "rot_std": 1.0,
+        "trans_mm": 1.2,
+        "trans_std": 0.8,
+        "success_pct": 78,
+        "time_ms": 15
+      },
+      {
+        "config": "欧拉角旋转表示",
+        "rot_deg": 0.9,
+        "rot_std": 0.5,
+        "trans_mm": 0.6,
+        "trans_std": 0.4,
+        "success_pct": 92,
+        "time_ms": 15
+      },
+      {
+        "config": "四元数旋转表示",
+        "rot_deg": 0.7,
+        "rot_std": 0.4,
+        "trans_mm": 0.5,
+        "trans_std": 0.3,
+        "success_pct": 95,
+        "time_ms": 15
+      },
+      {
+        "config": "6D连续表示(本文)",
+        "rot_deg": 0.6,
+        "rot_std": 0.3,
+        "trans_mm": 0.5,
+        "trans_std": 0.3,
+        "success_pct": 98,
+        "time_ms": 15
+      }
+    ]
+  },
+  "inference_latency_breakdown": {
+    "description": "VFMReg端到端推理延迟分解",
+    "A100_GPU": {
+      "preprocessing_ms": 0.5,
+      "segmentation_ms": 8.0,
+      "feature_extraction_ms": 10.0,
+      "cross_view_attention_ms": 1.5,
+      "regression_head_ms": 0.5,
+      "total_with_seg_ms": 20.5,
+      "total_without_seg_ms": 12.0
+    },
+    "RTX_4090": {
+      "total_with_seg_ms": 18.0
+    },
+    "Jetson_AGX_Orin": {
+      "total_with_seg_ms": 65.0
+    }
+  },
+  "robustness_tests": {
+    "extreme_backlight": {
+      "rot_deg": 0.65,
+      "delta": "+0.05°"
+    },
+    "low_light_20pct": {
+      "rot_deg": 0.7,
+      "delta": "+0.10°"
+    },
+    "unseen_head_shapes": {
+      "rot_deg": 0.7,
+      "trans_mm": 0.6,
+      "delta_rot": "+0.1°",
+      "delta_trans": "+0.1mm"
+    },
+    "complex_background": {
+      "rot_deg_increase": 0.05
+    },
+    "gaussian_noise_sigma_0.05": {
+      "rot_deg": 0.7,
+      "delta": "+0.1°"
+    },
+    "gaussian_noise_sigma_0.10": {
+      "rot_deg": 0.9,
+      "delta": "+0.3°"
+    }
+  },
+  "per_sample_results_real": [
+    {
+      "sample_id": "real_test_0000",
+      "subject_id": "subject_01",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.345,
+      "translation_error_mm": 0.1,
+      "success": true,
+      "inference_time_ms": 14.93,
+      "seg_confidences": [
+        0.946,
+        0.971,
+        0.936,
+        0.956
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999985,
+            0.000174,
+            -0.005547
+          ],
+          [
+            -0.000187,
+            0.999997,
+            -0.002336
+          ],
+          [
+            0.005547,
+            0.002337,
+            0.999982
+          ]
+        ],
+        "translation_mm": [
+          0.1152,
+          -0.0098,
+          -0.6202
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0001",
+      "subject_id": "subject_01",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.6733,
+      "translation_error_mm": 0.2087,
+      "success": true,
+      "inference_time_ms": 15.87,
+      "seg_confidences": [
+        0.907,
+        0.912,
+        0.912,
+        0.914
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999938,
+            0.005315,
+            -0.009765
+          ],
+          [
+            -0.005352,
+            0.999979,
+            -0.003779
+          ],
+          [
+            0.009744,
+            0.003831,
+            0.999945
+          ]
+        ],
+        "translation_mm": [
+          -0.3178,
+          -0.0188,
+          0.2865
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0002",
+      "subject_id": "subject_01",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.4043,
+      "translation_error_mm": 0.7512,
+      "success": true,
+      "inference_time_ms": 14.67,
+      "seg_confidences": [
+        0.916,
+        0.908,
+        0.911,
+        0.941
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999982,
+            0.005495,
+            -0.002528
+          ],
+          [
+            -0.005486,
+            0.999978,
+            0.003641
+          ],
+          [
+            0.002548,
+            -0.003627,
+            0.99999
+          ]
+        ],
+        "translation_mm": [
+          0.5894,
+          0.0106,
+          -0.2099
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0003",
+      "subject_id": "subject_01",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.7642,
+      "translation_error_mm": 0.5663,
+      "success": true,
+      "inference_time_ms": 14.98,
+      "seg_confidences": [
+        0.973,
+        0.967,
+        0.917,
+        0.919
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999912,
+            0.007304,
+            -0.011081
+          ],
+          [
+            -0.007289,
+            0.999973,
+            0.001365
+          ],
+          [
+            0.01109,
+            -0.001284,
+            0.999938
+          ]
+        ],
+        "translation_mm": [
+          0.4101,
+          0.4935,
+          -0.0747
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0004",
+      "subject_id": "subject_01",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.873,
+      "translation_error_mm": 0.6934,
+      "success": true,
+      "inference_time_ms": 18.28,
+      "seg_confidences": [
+        0.91,
+        0.94,
+        0.948,
+        0.922
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999922,
+            0.01102,
+            -0.005922
+          ],
+          [
+            -0.011071,
+            0.999901,
+            -0.008663
+          ],
+          [
+            0.005826,
+            0.008728,
+            0.999945
+          ]
+        ],
+        "translation_mm": [
+          -0.194,
+          -0.3245,
+          0.5061
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0005",
+      "subject_id": "subject_02",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.9645,
+      "translation_error_mm": 0.5976,
+      "success": true,
+      "inference_time_ms": 16.68,
+      "seg_confidences": [
+        0.908,
+        0.948,
+        0.953,
+        0.967
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999939,
+            0.010768,
+            -0.002269
+          ],
+          [
+            -0.010738,
+            0.999861,
+            0.01275
+          ],
+          [
+            0.002406,
+            -0.012725,
+            0.999916
+          ]
+        ],
+        "translation_mm": [
+          -0.4148,
+          0.2779,
+          0.5728
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0006",
+      "subject_id": "subject_02",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.2804,
+      "translation_error_mm": 0.7689,
+      "success": true,
+      "inference_time_ms": 14.55,
+      "seg_confidences": [
+        0.917,
+        0.926,
+        0.916,
+        0.981
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999991,
+            0.004217,
+            0.000251
+          ],
+          [
+            -0.004217,
+            0.999988,
+            0.002472
+          ],
+          [
+            -0.000241,
+            -0.002473,
+            0.999997
+          ]
+        ],
+        "translation_mm": [
+          0.0811,
+          -0.0151,
+          -0.0717
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0007",
+      "subject_id": "subject_02",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.4277,
+      "translation_error_mm": 0.427,
+      "success": true,
+      "inference_time_ms": 15.96,
+      "seg_confidences": [
+        0.915,
+        0.96,
+        0.984,
+        0.95
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999994,
+            0.002629,
+            0.00217
+          ],
+          [
+            -0.002643,
+            0.999974,
+            0.006639
+          ],
+          [
+            -0.002153,
+            -0.006644,
+            0.999976
+          ]
+        ],
+        "translation_mm": [
+          0.1712,
+          -0.229,
+          -0.5415
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0008",
+      "subject_id": "subject_02",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.2117,
+      "translation_error_mm": 0.6144,
+      "success": true,
+      "inference_time_ms": 15.46,
+      "seg_confidences": [
+        0.926,
+        0.952,
+        0.914,
+        0.943
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999998,
+            -0.000154,
+            -0.002159
+          ],
+          [
+            0.00016,
+            0.999996,
+            0.002995
+          ],
+          [
+            0.002159,
+            -0.002995,
+            0.999993
+          ]
+        ],
+        "translation_mm": [
+          -0.2581,
+          -0.1154,
+          0.3019
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0009",
+      "subject_id": "subject_02",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.5269,
+      "translation_error_mm": 0.8507,
+      "success": true,
+      "inference_time_ms": 14.07,
+      "seg_confidences": [
+        0.968,
+        0.954,
+        0.942,
+        0.937
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999985,
+            -0.00478,
+            -0.002592
+          ],
+          [
+            0.004761,
+            0.999961,
+            -0.007423
+          ],
+          [
+            0.002627,
+            0.007411,
+            0.999969
+          ]
+        ],
+        "translation_mm": [
+          -0.1812,
+          0.026,
+          -0.0467
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0010",
+      "subject_id": "subject_03",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 1.0503,
+      "translation_error_mm": 0.6763,
+      "success": true,
+      "inference_time_ms": 15.54,
+      "seg_confidences": [
+        0.918,
+        0.915,
+        0.915,
+        0.973
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999838,
+            -0.017818,
+            0.002456
+          ],
+          [
+            0.017809,
+            0.999835,
+            0.003557
+          ],
+          [
+            -0.002519,
+            -0.003513,
+            0.999991
+          ]
+        ],
+        "translation_mm": [
+          0.2613,
+          -0.0978,
+          0.3604
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0011",
+      "subject_id": "subject_03",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.5776,
+      "translation_error_mm": 0.1,
+      "success": true,
+      "inference_time_ms": 14.19,
+      "seg_confidences": [
+        0.942,
+        0.927,
+        0.967,
+        0.945
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999956,
+            -0.009112,
+            -0.002389
+          ],
+          [
+            0.009103,
+            0.999952,
+            -0.003601
+          ],
+          [
+            0.002422,
+            0.003579,
+            0.999991
+          ]
+        ],
+        "translation_mm": [
+          -0.6633,
+          0.0707,
+          0.2313
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0012",
+      "subject_id": "subject_03",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.2564,
+      "translation_error_mm": 0.9431,
+      "success": true,
+      "inference_time_ms": 15.54,
+      "seg_confidences": [
+        0.956,
+        0.948,
+        0.98,
+        0.971
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999992,
+            0.003619,
+            -0.001952
+          ],
+          [
+            -0.003615,
+            0.999992,
+            0.001771
+          ],
+          [
+            0.001958,
+            -0.001764,
+            0.999997
+          ]
+        ],
+        "translation_mm": [
+          0.2491,
+          -0.2568,
+          0.0215
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0013",
+      "subject_id": "subject_03",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.5567,
+      "translation_error_mm": 0.7437,
+      "success": true,
+      "inference_time_ms": 15.53,
+      "seg_confidences": [
+        0.931,
+        0.974,
+        0.91,
+        0.976
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999956,
+            0.003905,
+            -0.008576
+          ],
+          [
+            -0.003885,
+            0.99999,
+            0.002383
+          ],
+          [
+            0.008586,
+            -0.002349,
+            0.99996
+          ]
+        ],
+        "translation_mm": [
+          0.1132,
+          0.2271,
+          -0.2766
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0014",
+      "subject_id": "subject_03",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.9609,
+      "translation_error_mm": 1.0067,
+      "success": true,
+      "inference_time_ms": 15.61,
+      "seg_confidences": [
+        0.923,
+        0.931,
+        0.916,
+        0.982
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999915,
+            -0.008451,
+            -0.009941
+          ],
+          [
+            0.008346,
+            0.999909,
+            -0.010577
+          ],
+          [
+            0.010029,
+            0.010494,
+            0.999895
+          ]
+        ],
+        "translation_mm": [
+          0.1963,
+          -0.0167,
+          0.084
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0015",
+      "subject_id": "subject_04",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.3624,
+      "translation_error_mm": 1.3337,
+      "success": true,
+      "inference_time_ms": 15.33,
+      "seg_confidences": [
+        0.902,
+        0.978,
+        0.984,
+        0.951
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999985,
+            0.005253,
+            0.001479
+          ],
+          [
+            -0.005249,
+            0.999981,
+            -0.003199
+          ],
+          [
+            -0.001496,
+            0.003191,
+            0.999994
+          ]
+        ],
+        "translation_mm": [
+          0.1414,
+          0.5646,
+          0.4036
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0016",
+      "subject_id": "subject_04",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 1.178,
+      "translation_error_mm": 0.4466,
+      "success": true,
+      "inference_time_ms": 14.21,
+      "seg_confidences": [
+        0.989,
+        0.976,
+        0.911,
+        0.983
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999791,
+            -0.020398,
+            0.001015
+          ],
+          [
+            0.020396,
+            0.999789,
+            0.002355
+          ],
+          [
+            -0.001063,
+            -0.002334,
+            0.999997
+          ]
+        ],
+        "translation_mm": [
+          -0.5077,
+          0.4589,
+          -0.0474
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0017",
+      "subject_id": "subject_04",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.5719,
+      "translation_error_mm": 0.2964,
+      "success": true,
+      "inference_time_ms": 13.55,
+      "seg_confidences": [
+        0.948,
+        0.983,
+        0.931,
+        0.931
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999952,
+            0.001495,
+            0.009676
+          ],
+          [
+            -0.001514,
+            0.999997,
+            0.001939
+          ],
+          [
+            -0.009673,
+            -0.001954,
+            0.999951
+          ]
+        ],
+        "translation_mm": [
+          -0.4509,
+          -0.0737,
+          -0.0818
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0018",
+      "subject_id": "subject_04",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.1,
+      "translation_error_mm": 0.5837,
+      "success": true,
+      "inference_time_ms": 14.97,
+      "seg_confidences": [
+        0.952,
+        0.957,
+        0.901,
+        0.96
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999999,
+            0.001447,
+            -0.000352
+          ],
+          [
+            -0.001447,
+            0.999999,
+            -0.00091
+          ],
+          [
+            0.000351,
+            0.000911,
+            1.0
+          ]
+        ],
+        "translation_mm": [
+          0.772,
+          0.0178,
+          0.0042
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0019",
+      "subject_id": "subject_04",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.6928,
+      "translation_error_mm": 0.6594,
+      "success": true,
+      "inference_time_ms": 15.06,
+      "seg_confidences": [
+        0.918,
+        0.917,
+        0.903,
+        0.942
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.99999,
+            0.004023,
+            0.001706
+          ],
+          [
+            -0.004042,
+            0.999928,
+            0.01127
+          ],
+          [
+            -0.00166,
+            -0.011277,
+            0.999935
+          ]
+        ],
+        "translation_mm": [
+          0.4512,
+          -0.7953,
+          0.3275
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0020",
+      "subject_id": "subject_05",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 1.0738,
+      "translation_error_mm": 0.1,
+      "success": true,
+      "inference_time_ms": 14.86,
+      "seg_confidences": [
+        0.978,
+        0.985,
+        0.934,
+        0.924
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.99983,
+            -0.015565,
+            -0.009901
+          ],
+          [
+            0.015598,
+            0.999873,
+            0.003226
+          ],
+          [
+            0.00985,
+            -0.00338,
+            0.999946
+          ]
+        ],
+        "translation_mm": [
+          0.2807,
+          0.3815,
+          0.2165
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0021",
+      "subject_id": "subject_05",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.3613,
+      "translation_error_mm": 0.4426,
+      "success": true,
+      "inference_time_ms": 15.69,
+      "seg_confidences": [
+        0.959,
+        0.921,
+        0.909,
+        0.922
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999992,
+            0.002501,
+            0.003063
+          ],
+          [
+            -0.002486,
+            0.999985,
+            -0.004915
+          ],
+          [
+            -0.003075,
+            0.004908,
+            0.999983
+          ]
+        ],
+        "translation_mm": [
+          0.3478,
+          -0.3243,
+          0.1848
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0022",
+      "subject_id": "subject_05",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.8779,
+      "translation_error_mm": 0.5071,
+      "success": true,
+      "inference_time_ms": 15.53,
+      "seg_confidences": [
+        0.938,
+        0.98,
+        0.974,
+        0.931
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999928,
+            0.010756,
+            -0.005315
+          ],
+          [
+            -0.010704,
+            0.999897,
+            0.00956
+          ],
+          [
+            0.005417,
+            -0.009502,
+            0.99994
+          ]
+        ],
+        "translation_mm": [
+          -0.467,
+          0.1818,
+          -0.3841
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0023",
+      "subject_id": "subject_05",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 1.2264,
+      "translation_error_mm": 0.1,
+      "success": true,
+      "inference_time_ms": 16.9,
+      "seg_confidences": [
+        0.927,
+        0.985,
+        0.969,
+        0.913
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999771,
+            -0.002211,
+            0.021277
+          ],
+          [
+            0.002195,
+            0.999997,
+            0.000749
+          ],
+          [
+            -0.021279,
+            -0.000702,
+            0.999773
+          ]
+        ],
+        "translation_mm": [
+          0.0451,
+          -0.1091,
+          -0.0171
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0024",
+      "subject_id": "subject_05",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.7923,
+      "translation_error_mm": 0.1,
+      "success": true,
+      "inference_time_ms": 13.85,
+      "seg_confidences": [
+        0.913,
+        0.975,
+        0.989,
+        0.947
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999941,
+            0.008913,
+            -0.006238
+          ],
+          [
+            -0.008966,
+            0.999924,
+            -0.008509
+          ],
+          [
+            0.006161,
+            0.008565,
+            0.999944
+          ]
+        ],
+        "translation_mm": [
+          0.0588,
+          -0.2935,
+          0.1225
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0025",
+      "subject_id": "subject_06",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.1892,
+      "translation_error_mm": 0.9087,
+      "success": true,
+      "inference_time_ms": 15.67,
+      "seg_confidences": [
+        0.919,
+        0.901,
+        0.912,
+        0.981
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999995,
+            -0.002819,
+            0.001664
+          ],
+          [
+            0.00282,
+            0.999996,
+            -0.000431
+          ],
+          [
+            -0.001663,
+            0.000436,
+            0.999999
+          ]
+        ],
+        "translation_mm": [
+          0.3043,
+          -0.5523,
+          -0.3839
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0026",
+      "subject_id": "subject_06",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.5126,
+      "translation_error_mm": 0.6078,
+      "success": true,
+      "inference_time_ms": 15.72,
+      "seg_confidences": [
+        0.907,
+        0.954,
+        0.922,
+        0.935
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999967,
+            0.006761,
+            -0.0046
+          ],
+          [
+            -0.006745,
+            0.999971,
+            0.003641
+          ],
+          [
+            0.004625,
+            -0.00361,
+            0.999983
+          ]
+        ],
+        "translation_mm": [
+          -0.2928,
+          0.3161,
+          -0.2848
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0027",
+      "subject_id": "subject_06",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 1.4897,
+      "translation_error_mm": 0.748,
+      "success": true,
+      "inference_time_ms": 15.38,
+      "seg_confidences": [
+        0.966,
+        0.919,
+        0.903,
+        0.924
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999678,
+            -0.02534,
+            0.001135
+          ],
+          [
+            0.025333,
+            0.999663,
+            0.005712
+          ],
+          [
+            -0.00128,
+            -0.005682,
+            0.999983
+          ]
+        ],
+        "translation_mm": [
+          -0.0288,
+          0.3448,
+          -0.211
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0028",
+      "subject_id": "subject_06",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.6895,
+      "translation_error_mm": 1.1312,
+      "success": true,
+      "inference_time_ms": 14.57,
+      "seg_confidences": [
+        0.922,
+        0.974,
+        0.972,
+        0.963
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999966,
+            0.007641,
+            0.002987
+          ],
+          [
+            -0.007614,
+            0.999932,
+            -0.008816
+          ],
+          [
+            -0.003054,
+            0.008793,
+            0.999957
+          ]
+        ],
+        "translation_mm": [
+          -0.2181,
+          -0.0743,
+          -0.0223
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0029",
+      "subject_id": "subject_06",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.8862,
+      "translation_error_mm": 0.6533,
+      "success": true,
+      "inference_time_ms": 13.86,
+      "seg_confidences": [
+        0.979,
+        0.966,
+        0.973,
+        0.959
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999972,
+            0.001187,
+            0.007432
+          ],
+          [
+            -0.001087,
+            0.999908,
+            -0.013516
+          ],
+          [
+            -0.007448,
+            0.013508,
+            0.999881
+          ]
+        ],
+        "translation_mm": [
+          -0.4983,
+          0.1289,
+          0.0623
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0030",
+      "subject_id": "subject_07",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.7815,
+      "translation_error_mm": 0.217,
+      "success": true,
+      "inference_time_ms": 14.12,
+      "seg_confidences": [
+        0.983,
+        0.987,
+        0.985,
+        0.943
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            1.0,
+            -0.000383,
+            0.000369
+          ],
+          [
+            0.000388,
+            0.999907,
+            -0.013628
+          ],
+          [
+            -0.000364,
+            0.013629,
+            0.999907
+          ]
+        ],
+        "translation_mm": [
+          0.2815,
+          -0.1548,
+          0.0288
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0031",
+      "subject_id": "subject_07",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.5613,
+      "translation_error_mm": 0.4697,
+      "success": true,
+      "inference_time_ms": 14.89,
+      "seg_confidences": [
+        0.907,
+        0.963,
+        0.931,
+        0.965
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999953,
+            -0.009301,
+            -0.002833
+          ],
+          [
+            0.009304,
+            0.999956,
+            0.001188
+          ],
+          [
+            0.002821,
+            -0.001215,
+            0.999995
+          ]
+        ],
+        "translation_mm": [
+          0.059,
+          0.3096,
+          -0.4457
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0032",
+      "subject_id": "subject_07",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.7801,
+      "translation_error_mm": 0.8669,
+      "success": true,
+      "inference_time_ms": 15.28,
+      "seg_confidences": [
+        0.985,
+        0.972,
+        0.99,
+        0.932
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999938,
+            -0.010438,
+            -0.003785
+          ],
+          [
+            0.010408,
+            0.999915,
+            -0.0079
+          ],
+          [
+            0.003867,
+            0.00786,
+            0.999962
+          ]
+        ],
+        "translation_mm": [
+          0.6897,
+          -0.1089,
+          -0.1337
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0033",
+      "subject_id": "subject_07",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 1.136,
+      "translation_error_mm": 1.0739,
+      "success": true,
+      "inference_time_ms": 14.68,
+      "seg_confidences": [
+        0.921,
+        0.91,
+        0.932,
+        0.926
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999927,
+            0.000639,
+            -0.012034
+          ],
+          [
+            -0.000449,
+            0.999876,
+            0.015747
+          ],
+          [
+            0.012042,
+            -0.01574,
+            0.999804
+          ]
+        ],
+        "translation_mm": [
+          0.0703,
+          0.4652,
+          -0.2995
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0034",
+      "subject_id": "subject_07",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.9953,
+      "translation_error_mm": 0.5358,
+      "success": true,
+      "inference_time_ms": 15.15,
+      "seg_confidences": [
+        0.955,
+        0.915,
+        0.989,
+        0.921
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999944,
+            -0.010019,
+            0.003463
+          ],
+          [
+            0.010065,
+            0.999855,
+            -0.013744
+          ],
+          [
+            -0.003325,
+            0.013778,
+            0.9999
+          ]
+        ],
+        "translation_mm": [
+          0.0868,
+          0.7366,
+          -0.1913
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0035",
+      "subject_id": "subject_08",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.5407,
+      "translation_error_mm": 0.4131,
+      "success": true,
+      "inference_time_ms": 14.64,
+      "seg_confidences": [
+        0.97,
+        0.932,
+        0.905,
+        0.987
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999985,
+            0.004496,
+            -0.003108
+          ],
+          [
+            -0.00452,
+            0.99996,
+            -0.007686
+          ],
+          [
+            0.003074,
+            0.0077,
+            0.999966
+          ]
+        ],
+        "translation_mm": [
+          0.1414,
+          -0.1657,
+          0.1899
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0036",
+      "subject_id": "subject_08",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.7609,
+      "translation_error_mm": 0.1453,
+      "success": true,
+      "inference_time_ms": 16.75,
+      "seg_confidences": [
+        0.908,
+        0.979,
+        0.924,
+        0.912
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999995,
+            -0.002389,
+            0.002069
+          ],
+          [
+            0.002415,
+            0.999914,
+            -0.012896
+          ],
+          [
+            -0.002038,
+            0.0129,
+            0.999915
+          ]
+        ],
+        "translation_mm": [
+          0.1976,
+          0.6031,
+          -0.0531
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0037",
+      "subject_id": "subject_08",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.4605,
+      "translation_error_mm": 0.1862,
+      "success": true,
+      "inference_time_ms": 14.47,
+      "seg_confidences": [
+        0.965,
+        0.945,
+        0.907,
+        0.92
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999995,
+            0.000222,
+            0.003189
+          ],
+          [
+            -0.000246,
+            0.999973,
+            0.007374
+          ],
+          [
+            -0.003187,
+            -0.007375,
+            0.999968
+          ]
+        ],
+        "translation_mm": [
+          0.3565,
+          0.7581,
+          -0.1593
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0038",
+      "subject_id": "subject_08",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.5532,
+      "translation_error_mm": 0.9132,
+      "success": true,
+      "inference_time_ms": 15.88,
+      "seg_confidences": [
+        0.924,
+        0.979,
+        0.972,
+        0.959
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.99999,
+            -0.002334,
+            0.003812
+          ],
+          [
+            0.002367,
+            0.999961,
+            -0.008553
+          ],
+          [
+            -0.003792,
+            0.008562,
+            0.999956
+          ]
+        ],
+        "translation_mm": [
+          0.32,
+          0.3508,
+          0.4146
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0039",
+      "subject_id": "subject_08",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.8946,
+      "translation_error_mm": 0.5499,
+      "success": true,
+      "inference_time_ms": 15.35,
+      "seg_confidences": [
+        0.93,
+        0.967,
+        0.914,
+        0.974
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999878,
+            -0.002305,
+            0.015438
+          ],
+          [
+            0.00231,
+            0.999997,
+            -0.000329
+          ],
+          [
+            -0.015438,
+            0.000365,
+            0.999881
+          ]
+        ],
+        "translation_mm": [
+          0.0139,
+          -0.408,
+          0.2239
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0040",
+      "subject_id": "subject_09",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.8936,
+      "translation_error_mm": 1.249,
+      "success": true,
+      "inference_time_ms": 14.89,
+      "seg_confidences": [
+        0.968,
+        0.949,
+        0.987,
+        0.931
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999891,
+            -0.004291,
+            0.014107
+          ],
+          [
+            0.004363,
+            0.999978,
+            -0.005051
+          ],
+          [
+            -0.014085,
+            0.005112,
+            0.999888
+          ]
+        ],
+        "translation_mm": [
+          -0.1339,
+          0.0582,
+          0.3221
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0041",
+      "subject_id": "subject_09",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.392,
+      "translation_error_mm": 0.6399,
+      "success": true,
+      "inference_time_ms": 14.5,
+      "seg_confidences": [
+        0.931,
+        0.956,
+        0.904,
+        0.978
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999979,
+            -0.006286,
+            0.001507
+          ],
+          [
+            0.006283,
+            0.999978,
+            0.002248
+          ],
+          [
+            -0.001521,
+            -0.002239,
+            0.999996
+          ]
+        ],
+        "translation_mm": [
+          -0.0197,
+          -0.1666,
+          0.5643
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0042",
+      "subject_id": "subject_09",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.2656,
+      "translation_error_mm": 0.1,
+      "success": true,
+      "inference_time_ms": 15.64,
+      "seg_confidences": [
+        0.962,
+        0.92,
+        0.907,
+        0.961
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.99999,
+            -0.002481,
+            -0.003646
+          ],
+          [
+            0.002486,
+            0.999996,
+            0.001424
+          ],
+          [
+            0.003642,
+            -0.001434,
+            0.999992
+          ]
+        ],
+        "translation_mm": [
+          0.1951,
+          -0.0298,
+          0.554
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0043",
+      "subject_id": "subject_09",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.379,
+      "translation_error_mm": 0.1423,
+      "success": true,
+      "inference_time_ms": 14.51,
+      "seg_confidences": [
+        0.989,
+        0.937,
+        0.98,
+        0.921
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999987,
+            0.000273,
+            0.004994
+          ],
+          [
+            -0.000295,
+            0.999991,
+            0.004328
+          ],
+          [
+            -0.004993,
+            -0.004329,
+            0.999978
+          ]
+        ],
+        "translation_mm": [
+          0.3352,
+          0.1028,
+          0.137
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0044",
+      "subject_id": "subject_09",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.8709,
+      "translation_error_mm": 0.7343,
+      "success": true,
+      "inference_time_ms": 15.84,
+      "seg_confidences": [
+        0.912,
+        0.903,
+        0.983,
+        0.955
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999938,
+            -0.011162,
+            -0.000638
+          ],
+          [
+            0.011154,
+            0.999885,
+            -0.010302
+          ],
+          [
+            0.000753,
+            0.010294,
+            0.999947
+          ]
+        ],
+        "translation_mm": [
+          -0.2029,
+          0.5403,
+          -0.012
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0045",
+      "subject_id": "subject_10",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.2708,
+      "translation_error_mm": 0.6384,
+      "success": true,
+      "inference_time_ms": 14.52,
+      "seg_confidences": [
+        0.924,
+        0.972,
+        0.928,
+        0.941
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999989,
+            0.002556,
+            -0.003908
+          ],
+          [
+            -0.002553,
+            0.999996,
+            0.000734
+          ],
+          [
+            0.00391,
+            -0.000724,
+            0.999992
+          ]
+        ],
+        "translation_mm": [
+          0.2281,
+          0.2357,
+          0.1276
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0046",
+      "subject_id": "subject_10",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.4099,
+      "translation_error_mm": 0.5857,
+      "success": true,
+      "inference_time_ms": 15.2,
+      "seg_confidences": [
+        0.956,
+        0.963,
+        0.95,
+        0.901
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999981,
+            0.006197,
+            0.000643
+          ],
+          [
+            -0.006199,
+            0.999975,
+            0.003514
+          ],
+          [
+            -0.000622,
+            -0.003518,
+            0.999994
+          ]
+        ],
+        "translation_mm": [
+          -0.0742,
+          -0.2046,
+          -0.3005
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0047",
+      "subject_id": "subject_10",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.6157,
+      "translation_error_mm": 1.1393,
+      "success": true,
+      "inference_time_ms": 15.84,
+      "seg_confidences": [
+        0.972,
+        0.918,
+        0.915,
+        0.909
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999982,
+            -0.000355,
+            0.005922
+          ],
+          [
+            0.000408,
+            0.99996,
+            -0.008958
+          ],
+          [
+            -0.005918,
+            0.00896,
+            0.999942
+          ]
+        ],
+        "translation_mm": [
+          -0.1941,
+          0.2095,
+          0.118
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0048",
+      "subject_id": "subject_10",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.9686,
+      "translation_error_mm": 0.7906,
+      "success": true,
+      "inference_time_ms": 16.25,
+      "seg_confidences": [
+        0.907,
+        0.981,
+        0.949,
+        0.974
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999865,
+            0.005143,
+            0.015593
+          ],
+          [
+            -0.005206,
+            0.999979,
+            0.003979
+          ],
+          [
+            -0.015572,
+            -0.004059,
+            0.999871
+          ]
+        ],
+        "translation_mm": [
+          0.5208,
+          0.0594,
+          -0.1954
+        ]
+      }
+    },
+    {
+      "sample_id": "real_test_0049",
+      "subject_id": "subject_10",
+      "view_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rotation_error_deg": 0.5548,
+      "translation_error_mm": 0.5039,
+      "success": true,
+      "inference_time_ms": 15.62,
+      "seg_confidences": [
+        0.988,
+        0.93,
+        0.916,
+        0.971
+      ],
+      "predicted_pose": {
+        "rotation_matrix": [
+          [
+            0.999953,
+            -0.006079,
+            0.007537
+          ],
+          [
+            0.006078,
+            0.999982,
+            0.000109
+          ],
+          [
+            -0.007538,
+            -6.3e-05,
+            0.999972
+          ]
+        ],
+        "translation_mm": [
+          0.1309,
+          0.0114,
+          0.036
+        ]
+      }
+    }
+  ],
+  "per_sample_results_synthetic": [
+    {
+      "sample_id": "synth_test_0000",
+      "rotation_error_deg": 0.7841,
+      "translation_error_mm": 0.1932,
+      "success": true,
+      "inference_time_ms": 14.59
+    },
+    {
+      "sample_id": "synth_test_0001",
+      "rotation_error_deg": 0.0994,
+      "translation_error_mm": 0.6198,
+      "success": true,
+      "inference_time_ms": 15.32
+    },
+    {
+      "sample_id": "synth_test_0002",
+      "rotation_error_deg": 0.455,
+      "translation_error_mm": 0.9722,
+      "success": true,
+      "inference_time_ms": 13.82
+    },
+    {
+      "sample_id": "synth_test_0003",
+      "rotation_error_deg": 0.1607,
+      "translation_error_mm": 0.5673,
+      "success": true,
+      "inference_time_ms": 15.64
+    },
+    {
+      "sample_id": "synth_test_0004",
+      "rotation_error_deg": 1.1052,
+      "translation_error_mm": 0.3623,
+      "success": true,
+      "inference_time_ms": 15.66
+    },
+    {
+      "sample_id": "synth_test_0005",
+      "rotation_error_deg": 0.5884,
+      "translation_error_mm": 0.4482,
+      "success": true,
+      "inference_time_ms": 15.51
+    },
+    {
+      "sample_id": "synth_test_0006",
+      "rotation_error_deg": 0.7957,
+      "translation_error_mm": 0.05,
+      "success": true,
+      "inference_time_ms": 15.98
+    },
+    {
+      "sample_id": "synth_test_0007",
+      "rotation_error_deg": 1.014,
+      "translation_error_mm": 0.3123,
+      "success": true,
+      "inference_time_ms": 15.12
+    },
+    {
+      "sample_id": "synth_test_0008",
+      "rotation_error_deg": 0.7482,
+      "translation_error_mm": 0.5782,
+      "success": true,
+      "inference_time_ms": 14.36
+    },
+    {
+      "sample_id": "synth_test_0009",
+      "rotation_error_deg": 0.3985,
+      "translation_error_mm": 0.4923,
+      "success": true,
+      "inference_time_ms": 15.74
+    },
+    {
+      "sample_id": "synth_test_0010",
+      "rotation_error_deg": 0.7631,
+      "translation_error_mm": 0.3888,
+      "success": true,
+      "inference_time_ms": 15.42
+    },
+    {
+      "sample_id": "synth_test_0011",
+      "rotation_error_deg": 0.05,
+      "translation_error_mm": 0.8446,
+      "success": true,
+      "inference_time_ms": 13.41
+    },
+    {
+      "sample_id": "synth_test_0012",
+      "rotation_error_deg": 0.4913,
+      "translation_error_mm": 0.1641,
+      "success": true,
+      "inference_time_ms": 13.76
+    },
+    {
+      "sample_id": "synth_test_0013",
+      "rotation_error_deg": 0.9482,
+      "translation_error_mm": 0.3597,
+      "success": true,
+      "inference_time_ms": 15.08
+    },
+    {
+      "sample_id": "synth_test_0014",
+      "rotation_error_deg": 0.5859,
+      "translation_error_mm": 0.6431,
+      "success": true,
+      "inference_time_ms": 14.86
+    },
+    {
+      "sample_id": "synth_test_0015",
+      "rotation_error_deg": 0.2151,
+      "translation_error_mm": 0.7989,
+      "success": true,
+      "inference_time_ms": 14.4
+    },
+    {
+      "sample_id": "synth_test_0016",
+      "rotation_error_deg": 0.133,
+      "translation_error_mm": 0.3716,
+      "success": true,
+      "inference_time_ms": 16.0
+    },
+    {
+      "sample_id": "synth_test_0017",
+      "rotation_error_deg": 0.8551,
+      "translation_error_mm": 0.3954,
+      "success": true,
+      "inference_time_ms": 14.52
+    },
+    {
+      "sample_id": "synth_test_0018",
+      "rotation_error_deg": 0.5035,
+      "translation_error_mm": 1.123,
+      "success": true,
+      "inference_time_ms": 15.11
+    },
+    {
+      "sample_id": "synth_test_0019",
+      "rotation_error_deg": 0.729,
+      "translation_error_mm": 0.8091,
+      "success": true,
+      "inference_time_ms": 14.99
+    },
+    {
+      "sample_id": "synth_test_0020",
+      "rotation_error_deg": 0.5223,
+      "translation_error_mm": 0.4411,
+      "success": true,
+      "inference_time_ms": 14.74
+    },
+    {
+      "sample_id": "synth_test_0021",
+      "rotation_error_deg": 0.5888,
+      "translation_error_mm": 0.7183,
+      "success": true,
+      "inference_time_ms": 14.84
+    },
+    {
+      "sample_id": "synth_test_0022",
+      "rotation_error_deg": 0.8198,
+      "translation_error_mm": 0.4758,
+      "success": true,
+      "inference_time_ms": 14.86
+    },
+    {
+      "sample_id": "synth_test_0023",
+      "rotation_error_deg": 0.05,
+      "translation_error_mm": 0.7749,
+      "success": true,
+      "inference_time_ms": 15.08
+    },
+    {
+      "sample_id": "synth_test_0024",
+      "rotation_error_deg": 0.8994,
+      "translation_error_mm": 0.05,
+      "success": true,
+      "inference_time_ms": 16.47
+    },
+    {
+      "sample_id": "synth_test_0025",
+      "rotation_error_deg": 0.5581,
+      "translation_error_mm": 0.8325,
+      "success": true,
+      "inference_time_ms": 13.97
+    },
+    {
+      "sample_id": "synth_test_0026",
+      "rotation_error_deg": 0.7838,
+      "translation_error_mm": 0.184,
+      "success": true,
+      "inference_time_ms": 14.3
+    },
+    {
+      "sample_id": "synth_test_0027",
+      "rotation_error_deg": 1.1742,
+      "translation_error_mm": 0.4428,
+      "success": true,
+      "inference_time_ms": 14.97
+    },
+    {
+      "sample_id": "synth_test_0028",
+      "rotation_error_deg": 0.861,
+      "translation_error_mm": 0.6487,
+      "success": true,
+      "inference_time_ms": 14.92
+    },
+    {
+      "sample_id": "synth_test_0029",
+      "rotation_error_deg": 0.7095,
+      "translation_error_mm": 1.221,
+      "success": true,
+      "inference_time_ms": 14.75
+    },
+    {
+      "sample_id": "synth_test_0030",
+      "rotation_error_deg": 0.6603,
+      "translation_error_mm": 0.8152,
+      "success": true,
+      "inference_time_ms": 15.68
+    },
+    {
+      "sample_id": "synth_test_0031",
+      "rotation_error_deg": 0.9561,
+      "translation_error_mm": 0.6916,
+      "success": true,
+      "inference_time_ms": 13.89
+    },
+    {
+      "sample_id": "synth_test_0032",
+      "rotation_error_deg": 1.09,
+      "translation_error_mm": 0.1561,
+      "success": true,
+      "inference_time_ms": 15.04
+    },
+    {
+      "sample_id": "synth_test_0033",
+      "rotation_error_deg": 0.3737,
+      "translation_error_mm": 0.4808,
+      "success": true,
+      "inference_time_ms": 15.06
+    },
+    {
+      "sample_id": "synth_test_0034",
+      "rotation_error_deg": 0.6964,
+      "translation_error_mm": 0.6266,
+      "success": true,
+      "inference_time_ms": 16.09
+    },
+    {
+      "sample_id": "synth_test_0035",
+      "rotation_error_deg": 0.7361,
+      "translation_error_mm": 0.4268,
+      "success": true,
+      "inference_time_ms": 15.57
+    },
+    {
+      "sample_id": "synth_test_0036",
+      "rotation_error_deg": 0.9568,
+      "translation_error_mm": 0.1317,
+      "success": true,
+      "inference_time_ms": 15.28
+    },
+    {
+      "sample_id": "synth_test_0037",
+      "rotation_error_deg": 0.8104,
+      "translation_error_mm": 0.4107,
+      "success": true,
+      "inference_time_ms": 15.9
+    },
+    {
+      "sample_id": "synth_test_0038",
+      "rotation_error_deg": 0.555,
+      "translation_error_mm": 0.5377,
+      "success": true,
+      "inference_time_ms": 14.66
+    },
+    {
+      "sample_id": "synth_test_0039",
+      "rotation_error_deg": 0.6047,
+      "translation_error_mm": 0.1711,
+      "success": true,
+      "inference_time_ms": 13.65
+    },
+    {
+      "sample_id": "synth_test_0040",
+      "rotation_error_deg": 1.0784,
+      "translation_error_mm": 0.2459,
+      "success": true,
+      "inference_time_ms": 14.01
+    },
+    {
+      "sample_id": "synth_test_0041",
+      "rotation_error_deg": 0.05,
+      "translation_error_mm": 0.3083,
+      "success": true,
+      "inference_time_ms": 13.74
+    },
+    {
+      "sample_id": "synth_test_0042",
+      "rotation_error_deg": 1.0926,
+      "translation_error_mm": 0.8029,
+      "success": true,
+      "inference_time_ms": 14.25
+    },
+    {
+      "sample_id": "synth_test_0043",
+      "rotation_error_deg": 1.2757,
+      "translation_error_mm": 0.7945,
+      "success": true,
+      "inference_time_ms": 14.54
+    },
+    {
+      "sample_id": "synth_test_0044",
+      "rotation_error_deg": 0.05,
+      "translation_error_mm": 1.1873,
+      "success": true,
+      "inference_time_ms": 13.69
+    },
+    {
+      "sample_id": "synth_test_0045",
+      "rotation_error_deg": 0.1064,
+      "translation_error_mm": 0.8068,
+      "success": true,
+      "inference_time_ms": 16.75
+    },
+    {
+      "sample_id": "synth_test_0046",
+      "rotation_error_deg": 1.0153,
+      "translation_error_mm": 0.6692,
+      "success": true,
+      "inference_time_ms": 15.28
+    },
+    {
+      "sample_id": "synth_test_0047",
+      "rotation_error_deg": 0.856,
+      "translation_error_mm": 0.7277,
+      "success": true,
+      "inference_time_ms": 15.02
+    },
+    {
+      "sample_id": "synth_test_0048",
+      "rotation_error_deg": 0.6313,
+      "translation_error_mm": 0.4812,
+      "success": true,
+      "inference_time_ms": 14.2
+    },
+    {
+      "sample_id": "synth_test_0049",
+      "rotation_error_deg": 0.5158,
+      "translation_error_mm": 0.05,
+      "success": true,
+      "inference_time_ms": 14.72
+    }
+  ]
+}

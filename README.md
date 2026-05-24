@@ -313,7 +313,7 @@ python generate_results.py             # 实验结果生成
 @mastersthesis{guo2026vfmreg,
   title  = {基于单目相机的端到端脑磁配准研究},
   author = {郭宣伯},
-  school = {中国科学院大学},
+  school = {北京航空航天大学},
   year   = {2026}
 }
 ```
